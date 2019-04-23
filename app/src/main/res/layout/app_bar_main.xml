@@ -6,12 +6,12 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/view_status"
-        android:layout_width="match_parent"
-        android:layout_height="24dp"
-        android:background="@color/colorTheme"
-        android:visibility="gone" />
+    <!--<View-->
+        <!--android:id="@+id/view_status"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="24dp"-->
+        <!--android:background="@color/colorTheme"-->
+        <!--android:visibility="gone" />-->
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

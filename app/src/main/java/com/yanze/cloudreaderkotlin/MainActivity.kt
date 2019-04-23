@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initStatusView()
+//        initStatusView()
         StatusBarUtil.setColorNoTranslucentForDrawerLayout(this@MainActivity, drawer_layout,
                 CommonUtils.getColor(R.color.colorTheme))
 
@@ -36,9 +36,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
         initListener()
     }
 
-    fun initStatusView() {
-        view_status.layoutParams.height = StatusBarUtil.getStatusBarHeight(this@MainActivity)
-    }
+//    fun initStatusView() {
+//        view_status.layoutParams.height = StatusBarUtil.getStatusBarHeight(this@MainActivity)
+//    }
 
     private fun initContentFragment() {
         val mFragmentList: ArrayList<Fragment> = ArrayList()

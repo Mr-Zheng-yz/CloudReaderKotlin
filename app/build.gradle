@@ -44,6 +44,13 @@ dependencies {
     implementation deps.rx_android
     implementation deps.rxjava2
 
+    //retrofit
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.retrofit.scalars
+    implementation deps.retrofit.rxjava2
+    implementation deps.okhttp_logging_interceptor
+
     // kotlin
     // Kotlin
     implementation deps.kotlin.stdlib

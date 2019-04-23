@@ -1,5 +1,8 @@
 package com.yanze.cloudreaderkotlin.data.bean.moviechild
 
+/**
+ * 豆瓣热映item详情
+ */
 data class SubjectsBean(
         var rating: RatingBean,
         var title: String,
