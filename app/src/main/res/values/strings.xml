@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CloudReaderKotlin</string>
+    <string name="actionbar_search">搜索</string>
+
+</resources>
