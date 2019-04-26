@@ -56,6 +56,7 @@ versions.timber = "4.5.1"
 versions.work = "1.0.0-rc02"
 versions.multidex = "1.0.3"
 versions.gson = "2.3.0"
+versions.nineoldandroids = "2.4.0"
 
 def deps = [:]
 
@@ -149,6 +150,7 @@ deps.hamcrest = "org.hamcrest:hamcrest-all:$versions.hamcrest"
 deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
 deps.multidex = "com.android.support:multidex:$versions.multidex"
 deps.gson = "com.squareup.retrofit2:converter-gson:$versions.gson"
+deps.nineoldandroids = "com.nineoldandroids:library:$versions.nineoldandroids"
 ext.deps = deps
 
 def build_versions = [:]

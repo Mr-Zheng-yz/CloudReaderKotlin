@@ -29,7 +29,7 @@ object ServiceCreate {
                 if (gankHttps == null) {
                     synchronized(ServiceCreate::class.java) {
                         if (gankHttps == null) {
-                            gankHttps = getBuilder(apiUrl)
+                            gankHttps = getBuilder(apiUrl).create(service)
                         }
                     }
                 }
@@ -39,7 +39,7 @@ object ServiceCreate {
                 if (doubanHttps == null) {
                     synchronized(ServiceCreate::class.java) {
                         if (doubanHttps == null) {
-                            doubanHttps = getBuilder(apiUrl)
+                            doubanHttps = getBuilder(apiUrl).create(service)
                         }
                     }
                 }
@@ -49,7 +49,7 @@ object ServiceCreate {
                 if (dongtingHttps == null) {
                     synchronized(ServiceCreate::class.java) {
                         if (dongtingHttps == null) {
-                            dongtingHttps = getBuilder(apiUrl)
+                            dongtingHttps = getBuilder(apiUrl).create(service)
                         }
                     }
                 }
@@ -59,7 +59,7 @@ object ServiceCreate {
                 if (firHttps == null) {
                     synchronized(ServiceCreate::class.java) {
                         if (firHttps == null) {
-                            firHttps = getBuilder(apiUrl)
+                            firHttps = getBuilder(apiUrl).create(service)
                         }
                     }
                 }
@@ -69,7 +69,7 @@ object ServiceCreate {
                 if (wanAndroidHttps == null) {
                     synchronized(ServiceCreate::class.java) {
                         if (wanAndroidHttps == null) {
-                            wanAndroidHttps = getBuilder(apiUrl)
+                            wanAndroidHttps = getBuilder(apiUrl).create(service)
                         }
                     }
                 }
@@ -79,7 +79,7 @@ object ServiceCreate {
                 if (qsbkHttps == null) {
                     synchronized(ServiceCreate::class.java) {
                         if (qsbkHttps == null) {
-                            qsbkHttps = getBuilder(apiUrl)
+                            qsbkHttps = getBuilder(apiUrl).create(service)
                         }
                     }
                 }
@@ -89,7 +89,7 @@ object ServiceCreate {
                 if (qsbkHttps == null) {
                     synchronized(ServiceCreate::class.java) {
                         if (qsbkHttps == null) {
-                            qsbkHttps = getBuilder(apiUrl)
+                            qsbkHttps = getBuilder(apiUrl).create(service)
                         }
                     }
                 }

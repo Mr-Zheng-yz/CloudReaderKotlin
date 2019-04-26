@@ -17,13 +17,13 @@ interface MovieService {
      * 豆瓣热映电影，每日更新
      */
     @GET("v2/movie/in_theaters")
-    abstract fun getHotMovie(): Observable<HotMovieBean>
+    fun getHotMovie(): Observable<HotMovieBean>
 
     /**
      * 豆瓣即将上映电影
      */
     @GET("v2/movie/coming_soon")
-    abstract fun getComingSoon(@Query("start") start: Int, @Query("count") count: Int): Flowable<HotMovieBean>
+    fun getComingSoon(@Query("start") start: Int, @Query("count") count: Int): Observable<HotMovieBean>
 
 
     /**
@@ -32,7 +32,7 @@ interface MovieService {
      * @param id 电影bean里的id
      */
     @GET("v2/movie/subject/{id}")
-    abstract fun getMovieDetail(@Path("id") id: String): Observable<MovieDetailBean>
+    fun getMovieDetail(@Path("id") id: String): Observable<MovieDetailBean>
 
     /**
      * 获取豆瓣电影top250
@@ -41,5 +41,5 @@ interface MovieService {
      * @param count 一次请求的数目，如"10"条，最多100
      */
     @GET("v2/movie/top250")
-    abstract fun getMovieTop250(@Query("start") start: Int, @Query("count") count: Int): Observable<HotMovieBean>
+    fun getMovieTop250(@Query("start") start: Int, @Query("count") count: Int): Observable<HotMovieBean>
 }

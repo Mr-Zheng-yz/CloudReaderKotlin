@@ -18,6 +18,7 @@ import com.yanze.cloudreaderkotlin.app.ConstantsImageUrl
 import com.yanze.cloudreaderkotlin.test.TextFragment
 import com.yanze.cloudreaderkotlin.utils.*
 import com.yanze.cloudreaderkotlin.utils.statusbar.StatusBarUtil
+import com.yanze.cloudreaderkotlin.view.movie.MovieFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import java.util.ArrayList
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
         val mFragmentList: ArrayList<Fragment> = ArrayList()
         mFragmentList.add(TextFragment())
         mFragmentList.add(TextFragment())
-        mFragmentList.add(TextFragment())
+        mFragmentList.add(MovieFragment.getInstance())
 
         val adapter = MyFragmentPageAdapter(supportFragmentManager, mFragmentList)
         vp_content.adapter = adapter

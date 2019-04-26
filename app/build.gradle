@@ -24,6 +24,8 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':library:xrecyclerview')
+
     // Support libraries
     implementation deps.support.app_compat
     implementation deps.support.v4
@@ -31,6 +33,7 @@ dependencies {
     implementation deps.constraint_layout
     implementation deps.multidex
     implementation deps.glide_transformations
+    implementation deps.nineoldandroids
 
     // Architecture components
     implementation deps.lifecycle.runtime

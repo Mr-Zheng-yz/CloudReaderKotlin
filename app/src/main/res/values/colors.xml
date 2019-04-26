@@ -29,4 +29,14 @@
     <!--item的5.0一下版本选择器颜色-->
     <color name="itemLowBackground">#d9d9d9</color>
 
+    <!--没有水波纹效果的颜色选择器-->
+    <color name="colorItemBackground">#d9d9d9</color>
+
+    <color name="colorTitle">#666</color>
+
+    <!--分割线-->
+    <color name="colorLine">#EBEBEB</color>
+    <!--首页分割线-->
+    <color name="colorHomeLine">#D4D4D4</color>
+
 </resources>
