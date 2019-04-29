@@ -1,5 +1,7 @@
 package com.yanze.cloudreaderkotlin.data.bean.moviechild
 
+import java.io.Serializable
+
 /**
  * 豆瓣热映item详情
  */
@@ -16,4 +18,4 @@ data class SubjectsBean(
         var genres: List<String>,
         var casts: List<PersonBean>,
         var directors: List<PersonBean>
-)
+): Serializable

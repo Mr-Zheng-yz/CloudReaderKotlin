@@ -35,7 +35,7 @@ abstract class BaseFragment : Fragment() {
         childView = inflater.inflate(setContent(), null)
         val params = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         childView.layoutParams = params
-        childView.rl_container.addView(childView)
+        view.rl_container.addView(childView)
         return view
     }
 
@@ -97,7 +97,7 @@ abstract class BaseFragment : Fragment() {
     /**
      * 加载失败后点击后的操作
      */
-    protected fun onRefresh() {
+    open fun onRefresh() {
     }
 
     /**

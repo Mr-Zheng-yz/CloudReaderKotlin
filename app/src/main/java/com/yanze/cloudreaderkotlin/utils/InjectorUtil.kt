@@ -1,13 +1,15 @@
 package com.yanze.cloudreaderkotlin.utils
 
+import android.content.Context
 import com.yanze.cloudreaderkotlin.network.HttpClient
+import com.yanze.cloudreaderkotlin.network.cache.ACache
 import com.yanze.cloudreaderkotlin.repository.MovieRepository
 import com.yanze.cloudreaderkotlin.view.movie.MovieViewModelFactory
 
 object InjectorUtil {
 
-    private fun getMovieRepository() = MovieRepository.getInstantce(HttpClient.getInstance())
+    private fun getMovieRepository(acache:ACache) = MovieRepository.getInstantce(HttpClient.getInstance(),acache)
 
-    fun getMovieFactory() = MovieViewModelFactory(getMovieRepository())
+    fun getMovieFactory(context:Context?) = MovieViewModelFactory(getMovieRepository(ACache.get(context)))
 
 }

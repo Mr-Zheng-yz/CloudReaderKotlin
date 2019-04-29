@@ -34,14 +34,37 @@ class ImageLoadUtil {
                     .into(image)
         }
 
+        /**
+         * 热门电影头部图片
+         */
+        fun displayRandom(iv: ImageView, imgResource: Int) {
+            Glide.with(iv.context)
+                    .load(imgResource)
+                    .placeholder(getMusicDefaultPic(3))
+                    .error(getMusicDefaultPic(3))
+                    .crossFade(500)
+                    .into(iv)
+        }
+
         private fun getDefaultPic(type: Int): Int {
-            when (type) {
-                0 -> return R.drawable.img_default_movie
-                1 -> return R.drawable.img_default_meizi
-                2 -> return R.drawable.img_default_book
-                3 -> return R.drawable.shape_bg_loading
-                else -> return R.drawable.img_default_meizi
+            return when (type) {
+                0 -> R.drawable.img_default_movie
+                1 -> R.drawable.img_default_meizi
+                2 -> R.drawable.img_default_book
+                3 -> R.drawable.shape_bg_loading
+                else -> R.drawable.img_default_meizi
             }
         }
+
+        private fun getMusicDefaultPic(imgNumber: Int): Int {
+            return when (imgNumber) {
+                1 -> R.drawable.img_two_bi_one
+                2 -> R.drawable.img_four_bi_three
+                3 -> R.drawable.img_one_bi_one
+                4 -> R.drawable.shape_bg_loading
+                else -> R.drawable.img_four_bi_three
+            }
+        }
+
     }
 }

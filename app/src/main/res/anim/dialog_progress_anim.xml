@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shareInterpolator="false">
+    <!-- 如果不想共享一个interpolator(动画变化的速率)，则设置android:shareInterpolator="false"，并且需要在每一个动画效果处添加interpolator -->
+
+    <rotate
+        android:duration="800"
+        android:fromDegrees="0"
+        android:interpolator="@android:anim/linear_interpolator"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:repeatCount="-1"
+        android:repeatMode="restart"
+        android:toDegrees="+360" />
+    <!--
+        fromDegrees   动画开始时的角度
+        toDegrees     动画结束时物件的旋转角度,正代表顺时针
+        pivotX    属性为动画相对于物件的X坐标的开始位置
+        pivotY    属性为动画相对于物件的Y坐标的开始位置
+        repeatCount 动画重复次数，-1表示无限执行
+        repeatMode  重复类型，有两个值，reverse表示倒序回放，restart表示从头播放
+        interpolator 动画变化速率，这里是匀速
+    -->
+</set>
