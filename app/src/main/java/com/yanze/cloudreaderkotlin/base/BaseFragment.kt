@@ -72,7 +72,7 @@ abstract class BaseFragment : Fragment() {
      *  return;
      *  }
      */
-    protected open fun loadData(){}
+    protected open fun loadData() {}
 
     /**
      * 布局
@@ -111,9 +111,7 @@ abstract class BaseFragment : Fragment() {
             mAnimationDrawable.start()
         if (childView.visibility != View.GONE)
             childView.visibility = View.GONE
-
-        if (errorView != null)
-            errorView?.visibility = View.GONE
+        errorView?.visibility = View.GONE
     }
 
     /**
@@ -126,8 +124,7 @@ abstract class BaseFragment : Fragment() {
             mAnimationDrawable.stop()
         if (childView.visibility != View.VISIBLE)
             childView.visibility = View.VISIBLE
-        if (errorView != null)
-            errorView?.visibility = View.GONE
+        errorView?.visibility = View.GONE
     }
 
     /**

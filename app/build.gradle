@@ -38,6 +38,8 @@ dependencies {
     // Architecture components
     implementation deps.lifecycle.runtime
     implementation deps.lifecycle.extensions
+    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     kapt deps.lifecycle.compiler
     implementation deps.room.runtime
     kapt deps.room.compiler

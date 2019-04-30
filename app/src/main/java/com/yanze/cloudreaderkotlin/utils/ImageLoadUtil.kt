@@ -3,6 +3,7 @@ package com.yanze.cloudreaderkotlin.utils
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.yanze.cloudreaderkotlin.R
+import jp.wasabeef.glide.transformations.BlurTransformation
 
 class ImageLoadUtil {
     companion object {
@@ -44,6 +45,32 @@ class ImageLoadUtil {
                     .error(getMusicDefaultPic(3))
                     .crossFade(500)
                     .into(iv)
+        }
+
+        /**
+         * 电影详情页，显示导演与演员图片
+         * 没有加载中的图
+         */
+        fun showPersonImg(imageView: ImageView, url: String) {
+            Glide.with(imageView.context)
+                    .load(url)
+                    .crossFade(500)
+                    .error(getDefaultPic(0))
+                    .into(imageView)
+        }
+
+        /**
+         * 显示高斯模糊效果（电影详情头布局）
+         */
+        fun displayGaussFuzzy(imageView: ImageView, url: String) {
+            // "23":模糊度；"4":图片缩放4倍后再进行模糊
+            Glide.with(imageView.context)
+                    .load(url)
+                    .error(R.drawable.stackblur_default)
+                    .placeholder(R.drawable.stackblur_default)
+                    .crossFade(500)
+                    .bitmapTransform(BlurTransformation(imageView.context,23,4))
+                    .into(imageView)
         }
 
         private fun getDefaultPic(type: Int): Int {

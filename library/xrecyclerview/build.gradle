@@ -22,7 +22,8 @@ android {
 }
 
 dependencies {
-    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+//    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    testImplementation deps.junit
     implementation deps.support.recyclerview
     implementation deps.support.app_compat
 }

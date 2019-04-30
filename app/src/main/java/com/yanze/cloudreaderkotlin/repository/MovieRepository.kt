@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.yanze.cloudreaderkotlin.app.Constants
 import com.yanze.cloudreaderkotlin.data.Resource
 import com.yanze.cloudreaderkotlin.data.bean.HotMovieBean
+import com.yanze.cloudreaderkotlin.data.bean.MovieDetailBean
 import com.yanze.cloudreaderkotlin.network.DefaultSubscriber
 import com.yanze.cloudreaderkotlin.network.HttpClient
 import com.yanze.cloudreaderkotlin.network.cache.ACache
@@ -46,6 +47,18 @@ class MovieRepository private constructor(private var network: HttpClient, priva
         return liveData
     }
 
+    fun getMovieDetail(id: String): LiveData<Resource<MovieDetailBean>> {
+        val liveData = MutableLiveData<Resource<MovieDetailBean>>()
+        liveData.value = Resource.loading(null)
+        val movieDetailBean = acache.getAsObject(id) as MovieDetailBean?
+        if (movieDetailBean != null) {
+            liveData.postValue(Resource.success(movieDetailBean))
+        }else{
+            requestMovieDetail(id,liveData)
+        }
+        return liveData
+    }
+
     //请求热门电影
     private fun requestHotMovie(liveData: MutableLiveData<Resource<HotMovieBean>>) {
         network.getHotMovie().subscribe(object : DefaultSubscriber<HotMovieBean>() {
@@ -58,7 +71,20 @@ class MovieRepository private constructor(private var network: HttpClient, priva
                 acache.remove(Constants.HOT_MOVIE)
                 acache.put(Constants.HOT_MOVIE, entity, 24 * 60 * 60)//缓存为一天
             }
+        })
+    }
 
+    //请求电影详情
+    private fun requestMovieDetail(id:String,liveData: MutableLiveData<Resource<MovieDetailBean>>) {
+        network.getMovieDetail(id).subscribe(object : DefaultSubscriber<MovieDetailBean>() {
+            override fun _onError(errMsg: String) {
+                liveData.postValue(Resource.error(errMsg,null))
+            }
+
+            override fun _onNext(entity: MovieDetailBean) {
+                liveData.postValue(Resource.success(entity))
+                acache.put(id,entity)
+            }
         })
     }
 

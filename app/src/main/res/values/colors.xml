@@ -39,4 +39,9 @@
     <!--首页分割线-->
     <color name="colorHomeLine">#D4D4D4</color>
 
+    <!--电影评分-->
+    <color name="colorRateRed">#FB5B81</color>
+    <!--首页item文字颜色-->
+    <color name="colorSubtitle">#999</color>
+
 </resources>

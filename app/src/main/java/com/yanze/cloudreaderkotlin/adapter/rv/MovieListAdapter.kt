@@ -1,5 +1,6 @@
 package com.yanze.cloudreaderkotlin.adapter.rv
 
+import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.yanze.cloudreaderkotlin.utils.CommonUtils
 import com.yanze.cloudreaderkotlin.utils.ImageLoadUtil
 import com.yanze.cloudreaderkotlin.utils.StringFormatUtil
 import com.yanze.cloudreaderkotlin.utils.showToast
+import com.yanze.cloudreaderkotlin.view.movie.MovieDetailActivity
 import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MovieListAdapter(var context:Context?) : BaseRecyclerViewAdapter<SubjectsBean>() {
@@ -31,7 +33,8 @@ class MovieListAdapter(var context:Context?) : BaseRecyclerViewAdapter<SubjectsB
             view.tv_movie_genres.text = "${view.tv_movie_genres.context.getString(R.string.string_type)}${StringFormatUtil.formatGenres(bean.genres)}"
             view.tv_movie_rating_rate.text = "${view.tv_movie_genres.context.getString(R.string.string_rating)}${(bean.rating.average)}"
             view.rl_movie_item.setOnClickListener {
-                context?.showToast("电影详情")
+//                context?.showToast("电影详情")
+                MovieDetailActivity.start(context as Activity,bean,view.iv_move_img)
             }
             view.view_color.setBackgroundColor(CommonUtils.randomColor())
             ViewHelper.setScaleX(itemView, 0.8f)

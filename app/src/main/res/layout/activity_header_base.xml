@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.yanze.cloudreaderkotlin.widget.MyNestedScrollView
+        android:id="@+id/mns_base"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--内容布局头-->
+            <RelativeLayout
+                android:id="@+id/header_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--内容-->
+            <RelativeLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <!--加载失败-->
+                <ViewStub
+                    android:id="@+id/vs_error_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout="@layout/layout_loading_error" />
+
+                <!--加载中..-->
+                <ViewStub
+                    android:id="@+id/vs_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout="@layout/layout_loading_view" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </com.yanze.cloudreaderkotlin.widget.MyNestedScrollView>
+
+    <!--标题-->
+    <RelativeLayout
+        android:id="@+id/title_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</FrameLayout>
