@@ -12,16 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:theme="@style/MyScrollPage" >
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/MyScrollPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.movie.MovieDetailActivity"
-            android:theme="@style/MyScrollPage"></activity>
+        <activity
+            android:name=".view.movie.MovieDetailActivity"
+            android:theme="@style/MyScrollPage" />
+        <activity android:name=".view.movie.MovieTopActivity"></activity>
     </application>
 
 </manifest>
