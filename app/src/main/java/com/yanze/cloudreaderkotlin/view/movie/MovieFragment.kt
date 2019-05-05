@@ -89,6 +89,10 @@ class MovieFragment : BaseFragment() {
                 }
             }
         })
+        headerView?.ll_movie_top?.setOnClickListener {
+//            context?.let {  }
+            MovieTopActivity.start(context!!)
+        }
     }
 
     override fun loadData() {

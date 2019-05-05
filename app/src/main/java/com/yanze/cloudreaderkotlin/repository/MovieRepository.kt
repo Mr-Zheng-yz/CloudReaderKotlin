@@ -53,8 +53,20 @@ class MovieRepository private constructor(private var network: HttpClient, priva
         val movieDetailBean = acache.getAsObject(id) as MovieDetailBean?
         if (movieDetailBean != null) {
             liveData.postValue(Resource.success(movieDetailBean))
-        }else{
-            requestMovieDetail(id,liveData)
+        } else {
+            requestMovieDetail(id, liveData)
+        }
+        return liveData
+    }
+
+    fun getTop250Movie(start: Int, count: Int): LiveData<Resource<HotMovieBean>> {
+        val liveData = MutableLiveData<Resource<HotMovieBean>>()
+        liveData.value = Resource.loading(null)
+        val movieBean = acache.getAsObject("${Constants.TOP_MOVIE}$start$count") as HotMovieBean?
+        if (movieBean != null) {
+            liveData.postValue(Resource.success(movieBean))
+        } else {
+            requestTop250(start, count, liveData)
         }
         return liveData
     }
@@ -75,15 +87,29 @@ class MovieRepository private constructor(private var network: HttpClient, priva
     }
 
     //请求电影详情
-    private fun requestMovieDetail(id:String,liveData: MutableLiveData<Resource<MovieDetailBean>>) {
+    private fun requestMovieDetail(id: String, liveData: MutableLiveData<Resource<MovieDetailBean>>) {
         network.getMovieDetail(id).subscribe(object : DefaultSubscriber<MovieDetailBean>() {
             override fun _onError(errMsg: String) {
-                liveData.postValue(Resource.error(errMsg,null))
+                liveData.postValue(Resource.error(errMsg, null))
             }
 
             override fun _onNext(entity: MovieDetailBean) {
                 liveData.postValue(Resource.success(entity))
-                acache.put(id,entity)
+                acache.put(id, entity)
+            }
+        })
+    }
+
+    //请求Top250
+    private fun requestTop250(start: Int, count: Int, liveData: MutableLiveData<Resource<HotMovieBean>>) {
+        network.getMovieTop250(start, count).subscribe(object : DefaultSubscriber<HotMovieBean>() {
+            override fun _onNext(entity: HotMovieBean) {
+                liveData.postValue(Resource.success(entity))
+                acache.put("${Constants.TOP_MOVIE}$start$count", entity, 7 * 24 * 60 * 60)//缓存一周
+            }
+
+            override fun _onError(errMsg: String) {
+                liveData.postValue(Resource.error(errMsg, null))
             }
         })
     }
