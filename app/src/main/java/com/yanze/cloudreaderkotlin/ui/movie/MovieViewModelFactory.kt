@@ -1,4 +1,4 @@
-package com.yanze.cloudreaderkotlin.view.movie
+package com.yanze.cloudreaderkotlin.ui.movie
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

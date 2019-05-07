@@ -8,4 +8,4 @@
     android:scrollbarSize="4dp"
     android:scrollbarThumbVertical="@color/tabBackground"
     android:scrollbars="vertical"
-    tools:context=".view.movie.MovieTopActivity" />
+    tools:context=".ui.movie.MovieTopActivity" />

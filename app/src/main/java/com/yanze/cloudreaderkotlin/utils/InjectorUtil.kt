@@ -4,7 +4,7 @@ import android.content.Context
 import com.yanze.cloudreaderkotlin.network.HttpClient
 import com.yanze.cloudreaderkotlin.network.cache.ACache
 import com.yanze.cloudreaderkotlin.repository.MovieRepository
-import com.yanze.cloudreaderkotlin.view.movie.MovieViewModelFactory
+import com.yanze.cloudreaderkotlin.ui.movie.MovieViewModelFactory
 
 object InjectorUtil {
 

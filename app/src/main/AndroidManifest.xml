@@ -24,10 +24,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.movie.MovieDetailActivity"
+            android:name="com.yanze.cloudreaderkotlin.ui.movie.MovieDetailActivity"
             android:theme="@style/MyScrollPage" />
         <activity
-            android:name=".view.movie.MovieTopActivity" />
+            android:name="com.yanze.cloudreaderkotlin.ui.movie.MovieTopActivity" />
         <activity
             android:name=".view.webview.WebViewActivity"
             android:configChanges="orientation|screenSize"

@@ -1,11 +1,9 @@
-package com.yanze.cloudreaderkotlin.view.movie
+package com.yanze.cloudreaderkotlin.ui.movie
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.widget.ImageView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
@@ -21,7 +19,6 @@ import com.yanze.cloudreaderkotlin.data.bean.moviechild.SubjectsBean
 import com.yanze.cloudreaderkotlin.utils.*
 import com.yanze.cloudreaderkotlin.view.webview.WebViewActivity
 import kotlinx.android.synthetic.main.activity_movie_detail.*
-import kotlinx.android.synthetic.main.activity_movie_detail.view.*
 import kotlinx.android.synthetic.main.header_slide_shape.view.*
 
 class MovieDetailActivity : BaseHeaderActivity() {

@@ -44,4 +44,10 @@
     <!--首页item文字颜色-->
     <color name="colorSubtitle">#999</color>
 
+    <!--tab背景-->
+    <color name="colorTabBg">#ffffffff</color>
+    <color name="colorTabTextCheck">#ffce3d3a</color>
+    <color name="colorTabTextNormal">#585858</color>
+    <color name="colorTabLine">#ffce3d3a</color>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.yanze.cloudreaderkotlin.view.movie
+package com.yanze.cloudreaderkotlin.ui.movie
 
 import android.content.Context
 import android.content.Intent

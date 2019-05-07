@@ -24,10 +24,6 @@ class MyFragmentPageAdapter(fm: FragmentManager, var mFragment: List<Fragment>, 
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return if (position < mTitleList.size) {
-            Html.fromHtml(mTitleList[position])
-        }else{
-            ""
-        }
+        return if (position < mTitleList.size) Html.fromHtml(mTitleList[position]) else ""
     }
 }

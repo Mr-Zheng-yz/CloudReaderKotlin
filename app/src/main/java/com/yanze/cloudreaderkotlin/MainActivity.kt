@@ -16,9 +16,11 @@ import androidx.viewpager.widget.ViewPager
 import com.yanze.cloudreaderkotlin.adapter.MyFragmentPageAdapter
 import com.yanze.cloudreaderkotlin.app.ConstantsImageUrl
 import com.yanze.cloudreaderkotlin.test.TextFragment
+import com.yanze.cloudreaderkotlin.ui.gank.GankFragment
 import com.yanze.cloudreaderkotlin.utils.*
 import com.yanze.cloudreaderkotlin.utils.statusbar.StatusBarUtil
-import com.yanze.cloudreaderkotlin.view.movie.MovieFragment
+import com.yanze.cloudreaderkotlin.ui.movie.MovieFragment
+import com.yanze.cloudreaderkotlin.ui.wan.WanFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import java.util.ArrayList
@@ -44,8 +46,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
 
     private fun initContentFragment() {
         val mFragmentList: ArrayList<Fragment> = ArrayList()
-        mFragmentList.add(TextFragment())
-        mFragmentList.add(TextFragment())
+        mFragmentList.add(WanFragment.getInstance())
+        mFragmentList.add(GankFragment.getInstance())
         mFragmentList.add(MovieFragment.getInstance())
 
         val adapter = MyFragmentPageAdapter(supportFragmentManager, mFragmentList)
@@ -215,7 +217,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
     }
 
     companion object {
-        var isLaunch:Boolean = false
+        var isLaunch: Boolean = false
 
         fun start(context: Context) {
             context.startActivity(Intent(context, MainActivity::class.java))

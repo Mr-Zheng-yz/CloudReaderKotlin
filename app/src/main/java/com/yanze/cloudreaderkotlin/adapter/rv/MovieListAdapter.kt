@@ -14,8 +14,7 @@ import com.yanze.cloudreaderkotlin.data.bean.moviechild.SubjectsBean
 import com.yanze.cloudreaderkotlin.utils.CommonUtils
 import com.yanze.cloudreaderkotlin.utils.ImageLoadUtil
 import com.yanze.cloudreaderkotlin.utils.StringFormatUtil
-import com.yanze.cloudreaderkotlin.utils.showToast
-import com.yanze.cloudreaderkotlin.view.movie.MovieDetailActivity
+import com.yanze.cloudreaderkotlin.ui.movie.MovieDetailActivity
 import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MovieListAdapter(var context:Context?) : BaseRecyclerViewAdapter<SubjectsBean>() {
