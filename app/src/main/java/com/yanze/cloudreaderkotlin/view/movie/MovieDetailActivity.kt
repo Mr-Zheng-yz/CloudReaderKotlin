@@ -19,6 +19,7 @@ import com.yanze.cloudreaderkotlin.data.Resource
 import com.yanze.cloudreaderkotlin.data.bean.MovieDetailBean
 import com.yanze.cloudreaderkotlin.data.bean.moviechild.SubjectsBean
 import com.yanze.cloudreaderkotlin.utils.*
+import com.yanze.cloudreaderkotlin.view.webview.WebViewActivity
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.android.synthetic.main.activity_movie_detail.view.*
 import kotlinx.android.synthetic.main.header_slide_shape.view.*
@@ -27,7 +28,8 @@ class MovieDetailActivity : BaseHeaderActivity() {
 
     private var subjectBean: SubjectsBean? = null
     private lateinit var viewModel: MovieViewModel
-    private var mMoreUrl: String? = ""
+    private var mMoreUrl: String? = null
+    private var mMovieName: String? = null
     private lateinit var adapter: MovieDetailAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,6 +103,10 @@ class MovieDetailActivity : BaseHeaderActivity() {
         tv_movie_name_too.text = StringFormatUtil.formatGenres(movieBean.aka)
         //剧情简介
         tv_movie_introduce.text = movieBean.summary
+
+        mMoreUrl = movieBean.alt
+        mMovieName = movieBean.title
+
         transforData(movieBean)
     }
 
@@ -144,6 +150,7 @@ class MovieDetailActivity : BaseHeaderActivity() {
 
     override fun setTitleClickMore() {
         showToast("更duo信息 $mMoreUrl")
+        WebViewActivity.loadUrl(this@MovieDetailActivity,mMoreUrl,mMovieName)
     }
 
     override fun onRefresh() {

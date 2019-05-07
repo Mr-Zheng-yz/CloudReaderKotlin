@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CloudReaderKotlin</string>
+    <string name="app_name">云阅Kotlin</string>
     <string name="actionbar_search">搜索</string>
 
     <!--项目布局文件引用的字符串-->
@@ -14,5 +14,14 @@
 
     <string name="actionbar_more">更多信息</string>
     <string name="action_share">分享</string>
+    <string name="actionbar_webview_share">分享</string>
+    <string name="actionbar_webview_cope">复制链接</string>
+    <string name="actionbar_webview_open">浏览器打开</string>
+    <string name="actionbar_webview_refresh">刷新</string>
+    <string name="actionbar_webview_collect">添加到收藏</string>
+
+
+    <string name="my_blog">https://mr-zheng-yz.github.io/</string>
+
 
 </resources>

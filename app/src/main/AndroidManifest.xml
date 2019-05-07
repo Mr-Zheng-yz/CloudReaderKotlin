@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.yanze.cloudreaderkotlin">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".App"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:allowBackup">
         <activity
             android:name=".MainActivity"
             android:theme="@style/MyScrollPage">
@@ -23,8 +25,17 @@
         </activity>
         <activity
             android:name=".view.movie.MovieDetailActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/MyScrollPage" />
-        <activity android:name=".view.movie.MovieTopActivity"></activity>
+        <activity
+            android:name=".view.movie.MovieTopActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.webview.WebViewActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

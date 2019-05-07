@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        isLaunch = true
 //        initStatusView()
         StatusBarUtil.setColorNoTranslucentForDrawerLayout(this@MainActivity, drawer_layout,
                 CommonUtils.getColor(R.color.colorTheme))
@@ -189,6 +190,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
         getClipContent()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        isLaunch = false
+    }
+
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
@@ -209,6 +215,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
     }
 
     companion object {
+        var isLaunch:Boolean = false
+
         fun start(context: Context) {
             context.startActivity(Intent(context, MainActivity::class.java))
         }

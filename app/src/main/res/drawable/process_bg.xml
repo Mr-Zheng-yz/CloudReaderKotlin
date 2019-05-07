@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--背景，gendient是渐变，corner是圆角-->
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="10dp" />
+            <solid android:color="#00ffffff" />
+        </shape>
+    </item>
+
+    <!--第二进度条颜色-->
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape>
+                <corners android:radius="10dp" />
+                <solid android:color="#00ffffff" />
+            </shape>
+        </clip>
+    </item>
+
+    <!--第一进度条颜色-->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="10dp" />
+                <gradient
+                    android:angle="180"
+                    android:endColor="#ffffff"
+                    android:startColor="#f00" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>
