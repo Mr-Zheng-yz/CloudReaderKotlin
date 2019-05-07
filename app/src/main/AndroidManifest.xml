@@ -25,11 +25,9 @@
         </activity>
         <activity
             android:name=".view.movie.MovieDetailActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/MyScrollPage" />
         <activity
-            android:name=".view.movie.MovieTopActivity"
-            android:screenOrientation="portrait" />
+            android:name=".view.movie.MovieTopActivity" />
         <activity
             android:name=".view.webview.WebViewActivity"
             android:configChanges="orientation|screenSize"

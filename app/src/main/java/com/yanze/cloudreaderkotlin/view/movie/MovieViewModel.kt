@@ -2,6 +2,8 @@ package com.yanze.cloudreaderkotlin.view.movie
 
 import androidx.lifecycle.ViewModel
 import com.yanze.cloudreaderkotlin.data.bean.HotMovieBean
+import com.yanze.cloudreaderkotlin.data.bean.MovieDetailBean
+import com.yanze.cloudreaderkotlin.data.bean.moviechild.SubjectsBean
 import com.yanze.cloudreaderkotlin.repository.MovieRepository
 
 class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
@@ -11,6 +13,8 @@ class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
     var count: Int = 21
 
     var startTop: Int = 0
+
+    var movieDetail: MovieDetailBean? = null //电影详情
 
     //获取热映电影
     fun getMovie() = repository.getHotMovie()

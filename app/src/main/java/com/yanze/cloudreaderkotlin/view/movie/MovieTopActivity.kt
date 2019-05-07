@@ -58,11 +58,19 @@ class MovieTopActivity : BaseActivity() {
 
     private fun loadDoubanTop250() {
         handleData(viewModel.getMovieTop250(), action = {
-            val positionStart = adapter.itemCount + 1
-            adapter.addAll(it.subjects)
-            adapter.notifyItemRangeInserted(positionStart, it.subjects.size)
-            xrv_top.refreshComplete()
+            updateItemMovie(it.subjects)
+//                val positionStart = adapter.itemCount + 1
+//                adapter.addAll(it.subjects)
+//                adapter.notifyItemRangeInserted(positionStart, it.subjects.size)
+//                xrv_top.refreshComplete()
         })
+    }
+
+    private fun updateItemMovie(lists: List<SubjectsBean>) {
+        val positionStart = adapter.itemCount + 1
+        adapter.addAll(lists)
+        adapter.notifyItemRangeInserted(positionStart, lists.size)
+        xrv_top.refreshComplete()
     }
 
     private fun <T> handleData(liveData: LiveData<Resource<T>>, action: (T) -> Unit) =

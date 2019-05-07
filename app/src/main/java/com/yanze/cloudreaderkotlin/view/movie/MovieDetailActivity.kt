@@ -76,20 +76,26 @@ class MovieDetailActivity : BaseHeaderActivity() {
     }
 
     private fun loadMovieDetail() {
-        viewModel.getMovieDetail("${subjectBean?.id}")
-                .observe(this, Observer {
-                    when (it.state) {
-                        Resource.LOADING -> showLoading()
-                        Resource.SUCCESS -> {
-                            showContentView()
-                            updateUi(it.data!!)
+        if (viewModel.movieDetail == null) {
+            viewModel.getMovieDetail("${subjectBean?.id}")
+                    .observe(this, Observer {
+                        when (it.state) {
+                            Resource.LOADING -> showLoading()
+                            Resource.SUCCESS -> {
+                                showContentView()
+                                updateUi(it.data!!)
+                                viewModel.movieDetail = it.data
+                            }
+                            Resource.ERROR -> {
+                                showToast("${it.message}")
+                                showError()
+                            }
                         }
-                        Resource.ERROR -> {
-                            showToast("${it.message}")
-                            showError()
-                        }
-                    }
-                })
+                    })
+        } else {
+            showContentView()
+            updateUi(viewModel.movieDetail!!)
+        }
     }
 
     //更新UI
@@ -148,9 +154,9 @@ class MovieDetailActivity : BaseHeaderActivity() {
         return R.layout.header_slide_shape
     }
 
+    //查看更多信息，豆瓣好像关闭了web上的所有链接
     override fun setTitleClickMore() {
-        showToast("更duo信息 $mMoreUrl")
-        WebViewActivity.loadUrl(this@MovieDetailActivity,mMoreUrl,mMovieName)
+        WebViewActivity.loadUrl(this@MovieDetailActivity, mMoreUrl, mMovieName)
     }
 
     override fun onRefresh() {

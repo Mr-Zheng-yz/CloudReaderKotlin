@@ -30,20 +30,12 @@ class MovieRepository private constructor(private var network: HttpClient, priva
     fun getComingSoon(start: Int, count: Int): LiveData<Resource<HotMovieBean>> {
         val liveData = MutableLiveData<Resource<HotMovieBean>>()
         liveData.value = Resource.loading(null)
-        network.getComingSoon(start, count).subscribe(object : DefaultSubscriber<HotMovieBean>() {
-            override fun _onNext(entity: HotMovieBean) {
-                if (entity.subjects.isEmpty()) {
-                    liveData.postValue(Resource.error("没有即将上映的电影数据~", null))
-                } else {
-                    liveData.postValue(Resource.success(entity))
-                }
-            }
-
-            override fun _onError(errMsg: String) {
-                liveData.postValue(Resource.error(errMsg, null))
-            }
-
-        })
+        val comingMovieBean = acache.getAsObject("${Constants.COMINGSOON_MOVIE}$start$count") as HotMovieBean?
+        if (comingMovieBean != null) {
+            liveData.postValue(Resource.success(comingMovieBean))
+        }else{
+            requestComingSoon(start, count, liveData)
+        }
         return liveData
     }
 
@@ -82,6 +74,24 @@ class MovieRepository private constructor(private var network: HttpClient, priva
                 liveData.postValue(Resource.success(entity))
                 acache.remove(Constants.HOT_MOVIE)
                 acache.put(Constants.HOT_MOVIE, entity, 24 * 60 * 60)//缓存为一天
+            }
+        })
+    }
+
+    //请求即将上映电影
+    private fun requestComingSoon(start:Int,count:Int,liveData:MutableLiveData<Resource<HotMovieBean>>){
+        network.getComingSoon(start, count).subscribe(object : DefaultSubscriber<HotMovieBean>() {
+            override fun _onNext(entity: HotMovieBean) {
+                if (entity.subjects.isEmpty()) {
+                    liveData.postValue(Resource.error("没有即将上映的电影数据~", null))
+                } else {
+                    liveData.postValue(Resource.success(entity))
+                    acache.put("${Constants.COMINGSOON_MOVIE}$start$count",entity,24 * 60 * 60)
+                }
+            }
+
+            override fun _onError(errMsg: String) {
+                liveData.postValue(Resource.error(errMsg, null))
             }
         })
     }
