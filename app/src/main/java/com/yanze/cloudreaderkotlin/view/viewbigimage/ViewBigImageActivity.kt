@@ -18,6 +18,7 @@ import com.github.chrisbanes.photoview.OnPhotoTapListener
 import com.yanze.cloudreaderkotlin.R
 import com.yanze.cloudreaderkotlin.utils.CheckNetwork
 import com.yanze.cloudreaderkotlin.utils.PermissionHandler
+import com.yanze.cloudreaderkotlin.utils.RxSaveImage
 import com.yanze.cloudreaderkotlin.utils.showToast
 import kotlinx.android.synthetic.main.activity_view_big_image.*
 import kotlinx.android.synthetic.main.viewpager_very_image.view.*
@@ -28,7 +29,7 @@ class ViewBigImageActivity : AppCompatActivity(), OnPhotoTapListener, ViewPager.
 
     //* 接收传过来的uri地址
     private var imageList: MutableList<String>? = null
-    //* 图片标题
+    //* 图片标题（可摒弃）
     private var imageTitles: MutableList<String>? = null
     //* 传过来展示的是第几个图片
     private var code: Int = 0
@@ -87,15 +88,13 @@ class ViewBigImageActivity : AppCompatActivity(), OnPhotoTapListener, ViewPager.
                 return@setOnClickListener
             }
             if (!PermissionHandler.isHandlePermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                showToast("请给与应用读写内存权限")
                 return@setOnClickListener
             }
             if (isApp) {
                 showToast("图片已存在")
             } else {
                 //网络图片
-                showToast("假装正在缓存...")
-                TODO("缓存图片")
+                RxSaveImage.saveImageToGallery(this@ViewBigImageActivity,"${imageList?.get(page)}","${imageTitles?.get(page)}")
             }
         }
     }
@@ -232,7 +231,7 @@ class ViewBigImageActivity : AppCompatActivity(), OnPhotoTapListener, ViewPager.
         /**
          * 查看单张图片
          */
-        fun start(context: Context, imageUrl: String, imageTitle: String) {
+        fun start(context: Context, imageUrl: String,imageTitle: String) {
             val bundle = Bundle()
             bundle.putInt("selet", 1)
             bundle.putInt("code", 0)

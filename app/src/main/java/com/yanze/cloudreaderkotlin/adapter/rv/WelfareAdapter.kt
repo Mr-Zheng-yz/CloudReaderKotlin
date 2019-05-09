@@ -27,7 +27,7 @@ class WelfareAdapter(val context:Context) : BaseRecyclerViewAdapter<GankResult>(
                 }
                 val imageTitle = arrayListOf<String>().let {
                     for (child in data) {
-                        it.add(child.who)
+                        it.add(child.desc)
                     }
                     return@let it
                 }

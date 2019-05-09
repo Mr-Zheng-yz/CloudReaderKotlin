@@ -18,11 +18,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.yanze.cloudreaderkotlin.MainActivity
 import com.yanze.cloudreaderkotlin.R
-import com.yanze.cloudreaderkotlin.utils.BaseTools
-import com.yanze.cloudreaderkotlin.utils.CheckNetwork
-import com.yanze.cloudreaderkotlin.utils.CommonUtils
-import com.yanze.cloudreaderkotlin.utils.showToast
+import com.yanze.cloudreaderkotlin.utils.*
 import com.yanze.cloudreaderkotlin.utils.statusbar.StatusBarUtil
+import com.yanze.cloudreaderkotlin.view.viewbigimage.ViewBigImageActivity
 import com.yanze.cloudreaderkotlin.view.webview.config.*
 import kotlinx.android.synthetic.main.activity_web_view.*
 
@@ -181,8 +179,8 @@ class WebViewActivity : AppCompatActivity(), IWebPageView {
                     .setItems(arrayOf("查看大图", "保存图片到相册")) { _, which ->
                         val picUrl = hitTestResult.extra
                         when (which) {
-                            0 -> showToast("查看大图") //TODO(查看大图)
-                            1 -> showToast("保存图片") //TODO(保存图片)
+                            0 -> ViewBigImageActivity.start(this@WebViewActivity,0, arrayListOf("$picUrl"), arrayListOf("$picUrl"))
+                            1 -> RxSaveImage.saveImageToGallery(this@WebViewActivity,"$picUrl","$picUrl")
                         }
                     }
             return true
