@@ -4,6 +4,11 @@
     package="com.yanze.cloudreaderkotlin">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:name=".App"
@@ -24,16 +29,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.yanze.cloudreaderkotlin.ui.movie.MovieDetailActivity"
+            android:name=".ui.movie.MovieDetailActivity"
             android:theme="@style/MyScrollPage" />
-        <activity
-            android:name="com.yanze.cloudreaderkotlin.ui.movie.MovieTopActivity" />
+        <activity android:name=".ui.movie.MovieTopActivity" />
         <activity
             android:name=".view.webview.WebViewActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+        <activity android:name=".view.viewbigimage.ViewBigImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewBigPicTheme"/>
     </application>
 
 </manifest>

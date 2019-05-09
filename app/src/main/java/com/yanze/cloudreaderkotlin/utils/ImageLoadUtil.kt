@@ -60,6 +60,19 @@ class ImageLoadUtil {
         }
 
         /**
+         * 加载列表图片
+         * @type 0:电影  1：妹子  2.书籍
+         */
+        fun displayListImage(imageView: ImageView,url:String,type:Int){
+            Glide.with(imageView.context)
+                    .load(url)
+                    .crossFade(500)
+                    .placeholder(getDefaultPic(type))
+                    .error(getDefaultPic(type))
+                    .into(imageView)
+        }
+
+        /**
          * 显示高斯模糊效果（电影详情头布局）
          */
         fun displayGaussFuzzy(imageView: ImageView, url: String) {

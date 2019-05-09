@@ -9,7 +9,7 @@
         <item name="colorPrimary">@color/colorTheme</item>
         <item name="colorPrimaryDark">@color/colorTheme</item>
         <item name="colorAccent">@color/colorTheme</item>
-        <!--<item name="android:windowAnimationStyle">@style/default_animation</item>-->
+        <item name="android:windowAnimationStyle">@style/default_animation</item>
 
         <!--默认状态下页面的背景色-->
         <!--<item name="android:windowBackground">@color/color_page_bg</item>-->
@@ -63,12 +63,34 @@
         <item name="android:windowAnimationStyle">@style/default_animation_down</item>
     </style>
 
+    <!--查看大图页面，全屏显示-->
+    <style name="ViewBigPicTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorTheme</item>
+        <item name="colorPrimaryDark">@color/colorTheme</item>
+        <item name="colorAccent">@color/colorTheme</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowAnimationStyle">@style/default_animation</item>
+    </style>
 
     <!--=============================动画============================-->
-    <!--只有上一页面退出时有动画-->
+    <!-- 默认Activity跳转动画（进入与退出Activity都有动画） -->
+    <style name="default_animation" mce_bogus="1" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_up_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_up_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_down_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_down_out</item>
+    </style>
+
+    <!--退出Activity时动画-->
     <style name="default_animation_down" mce_bogus="1" parent="@android:style/Animation.Activity">
         <item name="android:activityCloseEnterAnimation">@anim/activity_down_in</item>
         <item name="android:activityCloseExitAnimation">@anim/activity_down_out</item>
+    </style>
+
+    <!--进入Activity时动画-->
+    <style name="default_animation_up" mce_bogus="1" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_up_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_up_out</item>
     </style>
 
 </resources>

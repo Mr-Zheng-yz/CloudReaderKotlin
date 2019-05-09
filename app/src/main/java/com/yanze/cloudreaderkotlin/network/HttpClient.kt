@@ -1,12 +1,15 @@
 package com.yanze.cloudreaderkotlin.network
 
+import com.yanze.cloudreaderkotlin.data.bean.GankIoDataBean
 import com.yanze.cloudreaderkotlin.data.bean.HotMovieBean
+import com.yanze.cloudreaderkotlin.network.service.GankService
 import com.yanze.cloudreaderkotlin.network.service.MovieService
 import io.reactivex.Observable
 
-class HttpClient: BaseReqo() {
+class HttpClient : BaseReqo() {
 
     private fun getDouBanService(): MovieService = ServiceCreate.create(MovieService::class.java, ServiceCreate.API_DOUBAN)
+    private fun getGankService(): GankService = ServiceCreate.create(GankService::class.java, ServiceCreate.API_GANKIO)
 
     //==============================豆瓣电影================================
     fun getHotMovie(): Observable<HotMovieBean> = transform(getDouBanService().getHotMovie())
@@ -17,6 +20,9 @@ class HttpClient: BaseReqo() {
 
     fun getMovieTop250(start: Int, count: Int) = transform(getDouBanService().getMovieTop250(start, count))
     //==============================豆瓣电影end==============================
+
+    //==============================干货集中营===============================
+    fun getGankIoData(type: String, page: Int, pre_page: Int): Observable<GankIoDataBean> = transform(getGankService().getGankIoData(type, page, pre_page))
 
     companion object {
         private var network: HttpClient? = null

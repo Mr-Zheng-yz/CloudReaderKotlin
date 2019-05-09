@@ -57,6 +57,7 @@ versions.work = "1.0.0-rc02"
 versions.multidex = "1.0.3"
 versions.gson = "2.3.0"
 versions.nineoldandroids = "2.4.0"
+versions.photoview = "2.1.4"
 
 def deps = [:]
 
@@ -151,6 +152,7 @@ deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_g
 deps.multidex = "com.android.support:multidex:$versions.multidex"
 deps.gson = "com.squareup.retrofit2:converter-gson:$versions.gson"
 deps.nineoldandroids = "com.nineoldandroids:library:$versions.nineoldandroids"
+deps.photoview = "com.github.chrisbanes:PhotoView:$versions.photoview"
 ext.deps = deps
 
 def build_versions = [:]
@@ -180,5 +182,6 @@ def addRepos(RepositoryHandler handler) {
     handler.google()
     handler.jcenter()
     handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    handler.maven { url "https://jitpack.io" }
 }
 ext.addRepos = this.&addRepos
