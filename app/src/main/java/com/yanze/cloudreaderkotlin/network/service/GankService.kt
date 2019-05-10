@@ -24,4 +24,6 @@ interface GankService {
     @GET("day/{year}/{month}/{day}")
     abstract fun getGankIoDay(@Path("year") year: String, @Path("month") month: String, @Path("day") day: String): Observable<String>
 
+
+
 }

@@ -11,6 +11,8 @@ class Constants {
         const val TOP_MOVIE = "top_movie_250"
         //福利图片缓存
         const val WELFARE_IMAGE = "welfare_image"
+        //干货数据缓存
+        const val GANKIODATA_CACHE = "gank_io_data"
 
 
         const val PAGE_COUNT = 20

@@ -49,11 +49,11 @@ class WelfareRepository(private var network: HttpClient, private val acache: ACa
     companion object {
         private var instance: WelfareRepository? = null
 
-        fun getInstantce(network: HttpClient?, acache: ACache): WelfareRepository {
+        fun getInstantce(network: HttpClient, acache: ACache): WelfareRepository {
             if (instance == null) {
                 synchronized(WelfareRepository::class.java) {
                     if (instance == null) {
-                        instance = WelfareRepository(network!!, acache)
+                        instance = WelfareRepository(network, acache)
                     }
                 }
             }

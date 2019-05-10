@@ -127,11 +127,11 @@ class MovieRepository private constructor(private var network: HttpClient, priva
     companion object {
         private var instance: MovieRepository? = null
 
-        fun getInstantce(network: HttpClient?, acache: ACache): MovieRepository {
+        fun getInstantce(network: HttpClient, acache: ACache): MovieRepository {
             if (instance == null) {
                 synchronized(MovieRepository::class.java) {
                     if (instance == null) {
-                        instance = MovieRepository(network!!, acache)
+                        instance = MovieRepository(network, acache)
                     }
                 }
             }

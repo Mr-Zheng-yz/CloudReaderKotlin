@@ -73,6 +73,18 @@ class ImageLoadUtil {
         }
 
         /**
+         * 加载Gif图(Gif被转换成静态图来加载)
+         */
+        fun displayGif(imageView: ImageView,url: String) {
+            Glide.with(imageView.context)
+                    .load(url)
+                    .asBitmap()
+                    .placeholder(R.drawable.shape_bg_loading)
+                    .error(R.drawable.shape_bg_loading)
+                    .into(imageView)
+        }
+
+        /**
          * 显示高斯模糊效果（电影详情头布局）
          */
         fun displayGaussFuzzy(imageView: ImageView, url: String) {

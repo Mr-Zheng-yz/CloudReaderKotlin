@@ -27,7 +27,7 @@ class HttpClient : BaseReqo() {
     companion object {
         private var network: HttpClient? = null
 
-        fun getInstance(): HttpClient? {
+        fun getInstance(): HttpClient {
             if (network == null) {
                 synchronized(HttpClient::class.java) {
                     if (network == null) {
@@ -35,7 +35,7 @@ class HttpClient : BaseReqo() {
                     }
                 }
             }
-            return network
+            return network!!
         }
     }
 }

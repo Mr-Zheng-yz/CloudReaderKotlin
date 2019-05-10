@@ -11,6 +11,6 @@ data class GankResult(
         val type: String,
         val url: String,
         val used: Boolean,
-        val who: String,
-        val images: List<String>
+        val who: String?,
+        val images: List<String>?
 ) : Serializable
