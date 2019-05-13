@@ -50,4 +50,7 @@
     <color name="colorTabTextNormal">#585858</color>
     <color name="colorTabLine">#ffce3d3a</color>
 
+    <!--选择分类按下颜色-->
+    <color name="colorChoosePress">#DDD</color>
+
 </resources>

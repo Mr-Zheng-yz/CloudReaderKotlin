@@ -13,6 +13,9 @@ class Constants {
         const val WELFARE_IMAGE = "welfare_image"
         //干货数据缓存
         const val GANKIODATA_CACHE = "gank_io_data"
+        //干活定制类别
+        const val GANK_CALA = "gank.cala"
+
 
 
         const val PAGE_COUNT = 20

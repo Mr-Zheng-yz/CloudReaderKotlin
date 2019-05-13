@@ -8,6 +8,7 @@ import com.yanze.cloudreaderkotlin.adapter.MyFragmentPageAdapter
 import com.yanze.cloudreaderkotlin.base.BaseFragment
 import com.yanze.cloudreaderkotlin.test.TextFragment
 import com.yanze.cloudreaderkotlin.ui.gank.android.AndroidFragment
+import com.yanze.cloudreaderkotlin.ui.gank.customer.CsutomerFragment
 import com.yanze.cloudreaderkotlin.ui.gank.welfare.WelfareFragment
 import kotlinx.android.synthetic.main.fragment_gank.view.*
 
@@ -54,7 +55,7 @@ class GankFragment : BaseFragment() {
         mTitleList.add("大安卓")
         mFragments.add(TextFragment())
         mFragments.add(WelfareFragment.getInstance())
-        mFragments.add(TextFragment())
+        mFragments.add(CsutomerFragment.getInstance())
         mFragments.add(AndroidFragment.getInstance())
 //        mTitleList = arrayListOf("每日推荐", "福利", "干货定制", "大安卓")
 //        mFragments = arrayListOf(TextFragment(), TextFragment(), TextFragment(), TextFragment())

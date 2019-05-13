@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.yanze.cloudreaderkotlin.adapter.MyFragmentPageAdapter
 import com.yanze.cloudreaderkotlin.app.ConstantsImageUrl
 import com.yanze.cloudreaderkotlin.test.TextFragment

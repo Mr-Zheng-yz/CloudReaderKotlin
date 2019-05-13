@@ -34,7 +34,8 @@ object RxSaveImage {
                     if (file.exists()) {
                         emitter.onError(Exception("图片已存在"))
                     }
-                } else {
+                }
+                if (!appDir.exists()) {
                     //没有目录创建目录
                     appDir.mkdir()
                 }
@@ -52,7 +53,7 @@ object RxSaveImage {
 
                         //通知图库更新
                         val uri = Uri.fromFile(file)
-                        val scannerIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+                        val scannerIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,uri)
                         context.sendBroadcast(scannerIntent)
                     } else {
                         emitter.onError(Exception("无法下载到图片"))
@@ -95,13 +96,16 @@ object RxSaveImage {
     private fun getFileName(imageUrl: String, mImageTitle: String): String {
         return when {
             imageUrl.contains(".gif") -> {
-                mImageTitle.replace("/".toRegex(), "-") + ".gif"
+                "${mImageTitle.replace("/", "-")}.gif"
             }
-            imageUrl.contains(".jpg") -> {
-                mImageTitle.replace("/".toRegex(), "-")
+            imageUrl.contains(".png") -> {
+                "${mImageTitle.replace("/", "-")}.png"
+            }
+            imageUrl.contains(".jpeg") -> {
+                "${mImageTitle.replace("/", "-")}.jpeg"
             }
             else -> {
-                mImageTitle.replace("/".toRegex(), "-") + ".jpg"
+                "${mImageTitle.replace("/", "-")}.jpg"
             }
         }
 //        return when {

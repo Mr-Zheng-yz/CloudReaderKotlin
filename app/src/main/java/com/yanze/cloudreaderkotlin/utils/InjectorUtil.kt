@@ -7,6 +7,7 @@ import com.yanze.cloudreaderkotlin.repository.GankRepository
 import com.yanze.cloudreaderkotlin.repository.MovieRepository
 import com.yanze.cloudreaderkotlin.repository.WelfareRepository
 import com.yanze.cloudreaderkotlin.ui.gank.android.GankViewModelFactory
+import com.yanze.cloudreaderkotlin.ui.gank.customer.CsutomViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.gank.welfare.WelfareViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.movie.MovieViewModelFactory
 
@@ -26,4 +27,6 @@ object InjectorUtil {
     fun getWelfFactory(context: Context?) = WelfareViewModelFactory(getWelfareRepository(ACache.get(context)))
 
     fun getGankFactory(context: Context?) = GankViewModelFactory(getGankRepository(ACache.get(context)))
+
+    fun getCustomFactory(context:Context?) = CsutomViewModelFactory(getGankRepository(ACache.get(context)))
 }
