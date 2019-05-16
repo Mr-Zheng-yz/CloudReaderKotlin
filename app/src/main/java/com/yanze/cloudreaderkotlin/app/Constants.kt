@@ -15,7 +15,8 @@ class Constants {
         const val GANKIODATA_CACHE = "gank_io_data"
         //干活定制类别
         const val GANK_CALA = "gank.cala"
-
+        //导航数据缓存
+        const val NAVI_JSON = "navi.json"
 
 
         const val PAGE_COUNT = 20

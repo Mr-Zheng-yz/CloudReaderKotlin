@@ -53,4 +53,9 @@
     <!--选择分类按下颜色-->
     <color name="colorChoosePress">#DDD</color>
 
+    <!--侧边栏分割线-->
+    <color name="colorNavLine">#E0E0E0</color>
+    <!--导航数据侧边栏背景色-->
+    <color name="colorNaviBg">#f3f3f3</color>
+
 </resources>

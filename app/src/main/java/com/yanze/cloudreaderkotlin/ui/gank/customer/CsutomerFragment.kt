@@ -27,7 +27,7 @@ class CsutomerFragment : BaseFragment(), View.OnClickListener {
     private lateinit var viewModel: CustomViewModel
     private lateinit var adapter: GankDataAdapter
 
-    private lateinit var headerView:View
+    private lateinit var headerView: View
     private var bottomDialog: BottomSheetDialog? = null
 
     override fun setContent() = R.layout.fragment_custom
@@ -36,8 +36,18 @@ class CsutomerFragment : BaseFragment(), View.OnClickListener {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this, InjectorUtil.getCustomFactory(context))
                 .get(CustomViewModel::class.java)
+        initData()
         initView()
         isPrepared = true
+    }
+
+    private fun initData() {
+        val type = SPUtils.getString(GANK_CALA, "全部")
+        when (type) {
+            "全部" -> viewModel.setDataType("all")
+            "IOS" -> viewModel.setDataType("iOS")
+            else -> viewModel.setDataType(type)
+        }
     }
 
     private fun initView() {
@@ -154,9 +164,9 @@ class CsutomerFragment : BaseFragment(), View.OnClickListener {
                     isFirst = false
                 }
                 Resource.ERROR -> {
-                    if (adapter.itemCount == 0) {
+                    if (adapter.itemCount == 0 || viewModel.page == 1) {
                         showError()
-                    }else{
+                    } else {
                         childView.xrv_custom.noMoreLoading()
                     }
                     context?.showToast(msg = "${it.message}")

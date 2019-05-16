@@ -7,6 +7,7 @@ import com.yanze.cloudreaderkotlin.R
 import com.yanze.cloudreaderkotlin.adapter.MyFragmentPageAdapter
 import com.yanze.cloudreaderkotlin.base.BaseFragment
 import com.yanze.cloudreaderkotlin.test.TextFragment
+import com.yanze.cloudreaderkotlin.ui.wan.navi.NaviFragment
 import kotlinx.android.synthetic.main.fragment_wan.view.*
 
 class WanFragment : BaseFragment() {
@@ -41,7 +42,7 @@ class WanFragment : BaseFragment() {
 
     private fun initFragmentList() {
         mTitleList = arrayListOf("玩安卓","知识体系","导航数据")
-        mFragments = arrayListOf(TextFragment(),TextFragment(),TextFragment())
+        mFragments = arrayListOf(TextFragment(),TextFragment(),NaviFragment.getInstance())
     }
 
     companion object {
