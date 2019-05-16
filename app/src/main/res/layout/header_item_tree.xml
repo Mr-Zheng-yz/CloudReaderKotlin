@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableLeft="@drawable/icon_position"
+        android:drawablePadding="3dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="3dp"
+        android:paddingTop="7dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="7dp"
+        android:text="开源项目主Tab" />
+
+</RelativeLayout>

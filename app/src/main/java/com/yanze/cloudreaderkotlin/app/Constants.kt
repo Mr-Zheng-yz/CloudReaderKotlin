@@ -17,6 +17,8 @@ class Constants {
         const val GANK_CALA = "gank.cala"
         //导航数据缓存
         const val NAVI_JSON = "navi.json"
+        //知识体系缓存
+        const val TREE_JSON = "tree.json"
 
 
         const val PAGE_COUNT = 20

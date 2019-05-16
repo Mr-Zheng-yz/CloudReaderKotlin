@@ -12,6 +12,7 @@ import com.yanze.cloudreaderkotlin.ui.gank.customer.CsutomViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.gank.welfare.WelfareViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.movie.MovieViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.wan.navi.NaviViewModelFactory
+import com.yanze.cloudreaderkotlin.ui.wan.tree.TreeViewModelFactory
 
 object InjectorUtil {
 
@@ -25,8 +26,7 @@ object InjectorUtil {
     //获取干货数据仓库
     private fun getGankRepository(acache: ACache) = GankRepository.getInstance(HttpClient.getInstance(), acache)
 
-    private fun getNaviJsonRepository(acache: ACache) = WanRepository.getInstance(HttpClient.getInstance(), acache)
-
+    private fun getWanRepository(acache: ACache) = WanRepository.getInstance(HttpClient.getInstance(), acache)
 
     //==============获取ViewModel创建工厂=============
 
@@ -40,5 +40,8 @@ object InjectorUtil {
     fun getCustomFactory(context: Context?) = CsutomViewModelFactory(getGankRepository(ACache.get(context)))
 
     //获取导航数据工厂
-    fun getNaviJsonFactory(context: Context?) = NaviViewModelFactory(getNaviJsonRepository(ACache.get(context)))
+    fun getNaviJsonFactory(context: Context?) = NaviViewModelFactory(getWanRepository(ACache.get(context)))
+
+    //获取知识体系
+    fun getTreeJsonFactory(context: Context?) = TreeViewModelFactory(getWanRepository(ACache.get(context)))
 }

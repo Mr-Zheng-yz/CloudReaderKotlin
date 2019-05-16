@@ -39,18 +39,18 @@ class NaviContentAdapter(val context: Context) : BaseRecyclerViewAdapter<NaviBea
         }
     }
 
-    class NaviTagAdapter : BaseRecyclerViewAdapter<NaviBean.ArticleBean>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = TagViewHolder(getView(parent,R.layout.item_navi_tag))
-
-        inner class TagViewHolder(view: View) : BaseRecyclerViewHolder<NaviBean.ArticleBean>(view) {
-            override fun onBaseBindViewHolder(bean: NaviBean.ArticleBean, position: Int) {
-                view.tv_navi_tag.setTextColor(CommonUtils.randomColor())
-                view.tv_navi_tag.text = Html.fromHtml(bean.title)
-                view.tv_navi_tag.setOnClickListener {
-                    WebViewActivity.loadUrl(view.context, bean.link, bean.title)
-                }
-            }
-        }
-    }
+//    class NaviTagAdapter : BaseRecyclerViewAdapter<NaviBean.ArticleBean>() {
+//        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = TagViewHolder(getView(parent,R.layout.item_navi_tag))
+//
+//        inner class TagViewHolder(view: View) : BaseRecyclerViewHolder<NaviBean.ArticleBean>(view) {
+//            override fun onBaseBindViewHolder(bean: NaviBean.ArticleBean, position: Int) {
+//                view.tv_navi_tag.setTextColor(CommonUtils.randomColor())
+//                view.tv_navi_tag.text = Html.fromHtml(bean.title)
+//                view.tv_navi_tag.setOnClickListener {
+//                    WebViewActivity.loadUrl(view.context, bean.link, bean.title)
+//                }
+//            }
+//        }
+//    }
 
 }

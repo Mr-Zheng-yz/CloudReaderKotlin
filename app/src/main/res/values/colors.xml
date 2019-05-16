@@ -58,4 +58,7 @@
     <!--导航数据侧边栏背景色-->
     <color name="colorNaviBg">#f3f3f3</color>
 
+    <!--淡粉色，知识体系按下时颜色-->
+    <color name="colorSmallRed">#faebeb</color>
+
 </resources>

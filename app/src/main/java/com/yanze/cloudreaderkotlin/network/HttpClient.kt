@@ -30,6 +30,8 @@ class HttpClient : BaseReqo() {
     //==============================玩安卓API===============================
     fun getNaviJson() = transform(getWanService().getNaviJson())
 
+    fun getTreeJson() = transform(getWanService().getTreeJson())
+
 
     //==============================玩安卓end===============================
 
