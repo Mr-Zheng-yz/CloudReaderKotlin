@@ -6,6 +6,8 @@ import com.yanze.cloudreaderkotlin.app.Constants
 import com.yanze.cloudreaderkotlin.data.Resource
 import com.yanze.cloudreaderkotlin.data.bean.NaviJsonBean
 import com.yanze.cloudreaderkotlin.data.bean.TreeResultBean
+import com.yanze.cloudreaderkotlin.data.bean.WanBannerResultBean
+import com.yanze.cloudreaderkotlin.data.bean.WanHomeResultBean
 import com.yanze.cloudreaderkotlin.network.DefaultSubscriber
 import com.yanze.cloudreaderkotlin.network.HttpClient
 import com.yanze.cloudreaderkotlin.network.cache.ACache
@@ -34,6 +36,32 @@ class WanRepository private constructor(private var network: HttpClient, private
             liveData.postValue(Resource.success(treeResultBean))
         } else {
             requestTreeJson(liveData)
+        }
+        return liveData
+    }
+
+    //获取玩安卓首页数据
+    fun getWanHomeData(page: Int, cid: Int): LiveData<Resource<WanHomeResultBean>> {
+        val liveData = MutableLiveData<Resource<WanHomeResultBean>>()
+        liveData.postValue(Resource.loading(null))
+        val homeResultBean = acache.getAsObject("${Constants.WAN_ANDROID_ARTICLE}$page") as WanHomeResultBean?
+        if (homeResultBean != null) {
+            liveData.postValue(Resource.success(homeResultBean))
+        } else {
+            requestWanHomeData(page, cid, liveData)
+        }
+        return liveData
+    }
+
+    //获取玩安卓首页Banner
+    fun getWanAndroidBanner(): LiveData<Resource<WanBannerResultBean>> {
+        val liveData = MutableLiveData<Resource<WanBannerResultBean>>()
+        liveData.postValue(Resource.loading(null))
+        val bannerResultBean = acache.getAsObject(Constants.WAN_ANDROID_BANNER) as WanBannerResultBean?
+        if (bannerResultBean != null) {
+            liveData.postValue(Resource.success(bannerResultBean))
+        } else {
+            requestWanBanner(liveData)
         }
         return liveData
     }
@@ -72,6 +100,43 @@ class WanRepository private constructor(private var network: HttpClient, private
                 }
             }
         })
+    }
+
+    //请求玩安卓首页数据
+    private fun requestWanHomeData(page: Int, cid: Int, liveData: MutableLiveData<Resource<WanHomeResultBean>>) {
+        network.getWanHome(page, cid).subscribe(object : DefaultSubscriber<WanHomeResultBean>() {
+            override fun _onNext(entity: WanHomeResultBean) {
+                if (entity.data.datas.isNotEmpty()) {
+                    liveData.postValue(Resource.success(entity))
+                    acache.put("${Constants.WAN_ANDROID_ARTICLE}$page", entity, 24 * 60 * 60) //缓存一天
+                } else {
+                    liveData.postValue(Resource.error("数据为空~", null))
+                }
+            }
+
+            override fun _onError(errMsg: String) {
+                liveData.postValue(Resource.error(errMsg, null))
+            }
+        })
+    }
+
+    //请求玩安卓Banner
+    private fun requestWanBanner(liveData: MutableLiveData<Resource<WanBannerResultBean>>) {
+        network.getWanAndroidBanner().subscribe(object : DefaultSubscriber<WanBannerResultBean>() {
+            override fun _onError(errMsg: String) {
+                liveData.postValue(Resource.error(errMsg, null))
+            }
+
+            override fun _onNext(entity: WanBannerResultBean) {
+                if (entity.data.isNotEmpty()) {
+                    liveData.postValue(Resource.success(entity))
+                    acache.put(Constants.WAN_ANDROID_BANNER, entity, 24 * 60 * 60)
+                } else {
+                    liveData.postValue(Resource.error("轮播图为空~", null))
+                }
+            }
+        })
+
     }
 
 

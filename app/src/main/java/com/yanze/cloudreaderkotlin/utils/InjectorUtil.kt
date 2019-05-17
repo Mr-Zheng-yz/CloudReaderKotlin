@@ -11,6 +11,7 @@ import com.yanze.cloudreaderkotlin.ui.gank.android.GankViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.gank.customer.CsutomViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.gank.welfare.WelfareViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.movie.MovieViewModelFactory
+import com.yanze.cloudreaderkotlin.ui.wan.home.BannerViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.wan.navi.NaviViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.wan.tree.TreeViewModelFactory
 
@@ -44,4 +45,7 @@ object InjectorUtil {
 
     //获取知识体系
     fun getTreeJsonFactory(context: Context?) = TreeViewModelFactory(getWanRepository(ACache.get(context)))
+
+    //获取玩安卓首页
+    fun getWanBannerFactory(context: Context?) = BannerViewModelFactory(getWanRepository(ACache.get(context)))
 }

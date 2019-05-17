@@ -22,8 +22,14 @@ android {
         }
     }
 }
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
     implementation project(path: ':library:xrecyclerview')
 
     // Support libraries
@@ -36,6 +42,7 @@ dependencies {
     implementation deps.nineoldandroids
     implementation deps.photoview
     implementation deps.flexbox
+//    implementation deps.banner //没有适配androidX，直接引用本地aar包
 //    implementation 'com.cocosw:bottomsheet:1.3.1@aar'
 
     // Architecture components

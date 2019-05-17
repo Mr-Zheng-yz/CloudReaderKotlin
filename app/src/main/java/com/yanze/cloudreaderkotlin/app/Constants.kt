@@ -19,6 +19,10 @@ class Constants {
         const val NAVI_JSON = "navi.json"
         //知识体系缓存
         const val TREE_JSON = "tree.json"
+        //玩安卓首页文章缓存
+        const val WAN_ANDROID_ARTICLE = "wan.android.article"
+        //玩安卓首页Banner缓存
+        const val WAN_ANDROID_BANNER = "wan.android.banner"
 
 
         const val PAGE_COUNT = 20

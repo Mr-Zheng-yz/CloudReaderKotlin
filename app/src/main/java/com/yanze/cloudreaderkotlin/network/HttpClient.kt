@@ -32,6 +32,9 @@ class HttpClient : BaseReqo() {
 
     fun getTreeJson() = transform(getWanService().getTreeJson())
 
+    fun getWanHome(page:Int,cid:Int) = transform(getWanService().getHomeList(page))
+
+    fun getWanAndroidBanner() = transform(getWanService().getWanAndroidBanner())
 
     //==============================玩安卓end===============================
 

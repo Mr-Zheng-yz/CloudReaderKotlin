@@ -59,7 +59,7 @@ versions.gson = "2.3.0"
 versions.nineoldandroids = "2.4.0"
 versions.photoview = "2.1.4"
 versions.flexbox = "1.1.0"
-
+versions.banner = "1.4.10"
 def deps = [:]
 
 def support = [:]
@@ -155,6 +155,7 @@ deps.gson = "com.squareup.retrofit2:converter-gson:$versions.gson"
 deps.nineoldandroids = "com.nineoldandroids:library:$versions.nineoldandroids"
 deps.photoview = "com.github.chrisbanes:PhotoView:$versions.photoview"
 deps.flexbox = "com.google.android:flexbox:$versions.flexbox"
+deps.banner = "com.youth.banner:banner:$versions.banner"
 ext.deps = deps
 
 def build_versions = [:]

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:paddingTop="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp">
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_new"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_new" />
+
+        <TextView
+            android:id="@+id/tv_tag_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="?selectableItemBackgroundBorderless"
+            android:paddingLeft="7dp"
+            android:paddingTop="2dp"
+            android:paddingRight="7dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/colorSubtitle"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="技术博客" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="60dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_header"
+        tools:background="@color/colorLine" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="4dp"
+        android:maxLines="2"
+        android:textColor="@color/colorContent"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_image"
+        app:layout_constraintTop_toTopOf="@+id/iv_image"
+        tools:text="一款基于网易云音乐UI，使用玩安卓、Gank.Io及豆瓣api开发的符合Google.." />
+
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:textColor="@color/colorSubtitle"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:text="2010-10-10" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorSubtitle"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_time"
+        app:layout_constraintTop_toTopOf="@+id/tv_time"
+        tools:text=" · jingbin" />
+
+    <CheckBox
+        android:id="@+id/vb_collect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="5dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:button="@drawable/selector_collect_check"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
