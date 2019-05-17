@@ -46,12 +46,8 @@ class BannerFragment : BaseFragment() {
 
     private fun initView() {
         adapter = WanArticleAdapter()
-        val layoutManager = LinearLayoutManager(context)
-        childView.xrv_wan.layoutManager = layoutManager
+        RefreshHelper.init(childView.xrv_wan)
         childView.xrv_wan.adapter = adapter
-        childView.xrv_wan.setPullRefreshEnabled(false)
-        childView.xrv_wan.setLoadingMoreEnabled(true)
-        childView.xrv_wan.clearHeader()
         childView.xrv_wan.setLoadingListener(object : XRecyclerView.LoadingListener {
             override fun onRefresh() {
             }

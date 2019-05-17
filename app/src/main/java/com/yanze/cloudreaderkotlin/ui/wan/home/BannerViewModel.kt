@@ -2,13 +2,12 @@ package com.yanze.cloudreaderkotlin.ui.wan.home
 
 import androidx.lifecycle.ViewModel
 import com.yanze.cloudreaderkotlin.data.bean.WanBannerResultBean
-import com.yanze.cloudreaderkotlin.data.bean.wan.WanBannerBean
 import com.yanze.cloudreaderkotlin.repository.WanRepository
 
 class BannerViewModel(private val repository: WanRepository) : ViewModel() {
 
     var page: Int = 0
-    private val cid: Int = 1
+    private val cid: Int? = null
 
     fun getHomeData() = repository.getWanHomeData(page, cid)
 

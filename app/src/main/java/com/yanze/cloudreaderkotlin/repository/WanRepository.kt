@@ -12,7 +12,13 @@ import com.yanze.cloudreaderkotlin.network.DefaultSubscriber
 import com.yanze.cloudreaderkotlin.network.HttpClient
 import com.yanze.cloudreaderkotlin.network.cache.ACache
 
+/**
+ * 为减少服务器压力，每个接口都加了缓存
+ *
+ */
 class WanRepository private constructor(private var network: HttpClient, private val acache: ACache) {
+
+    //====================================先拿缓存，没有缓存数据再去请求接口====================================
 
     //获取NaviJson数据
     fun getNaviJsonData(): LiveData<Resource<NaviJsonBean>> {
@@ -41,7 +47,7 @@ class WanRepository private constructor(private var network: HttpClient, private
     }
 
     //获取玩安卓首页数据
-    fun getWanHomeData(page: Int, cid: Int): LiveData<Resource<WanHomeResultBean>> {
+    fun getWanHomeData(page: Int, cid: Int?): LiveData<Resource<WanHomeResultBean>> {
         val liveData = MutableLiveData<Resource<WanHomeResultBean>>()
         liveData.postValue(Resource.loading(null))
         val homeResultBean = acache.getAsObject("${Constants.WAN_ANDROID_ARTICLE}$page") as WanHomeResultBean?
@@ -65,6 +71,8 @@ class WanRepository private constructor(private var network: HttpClient, private
         }
         return liveData
     }
+
+    //====================================真正的网络请求===========================================
 
     //请求导航数据
     private fun requestNaviJson(liveData: MutableLiveData<Resource<NaviJsonBean>>) {
@@ -103,7 +111,7 @@ class WanRepository private constructor(private var network: HttpClient, private
     }
 
     //请求玩安卓首页数据
-    private fun requestWanHomeData(page: Int, cid: Int, liveData: MutableLiveData<Resource<WanHomeResultBean>>) {
+    private fun requestWanHomeData(page: Int, cid: Int?, liveData: MutableLiveData<Resource<WanHomeResultBean>>) {
         network.getWanHome(page, cid).subscribe(object : DefaultSubscriber<WanHomeResultBean>() {
             override fun _onNext(entity: WanHomeResultBean) {
                 if (entity.data.datas.isNotEmpty()) {
@@ -136,7 +144,6 @@ class WanRepository private constructor(private var network: HttpClient, private
                 }
             }
         })
-
     }
 
 

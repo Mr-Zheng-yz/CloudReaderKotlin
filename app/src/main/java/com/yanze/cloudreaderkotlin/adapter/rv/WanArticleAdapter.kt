@@ -8,6 +8,7 @@ import com.tuju.jetpackfirstdemo.base.baseadapter.BaseRecyclerViewAdapter
 import com.tuju.jetpackfirstdemo.base.baseadapter.BaseRecyclerViewHolder
 import com.yanze.cloudreaderkotlin.R
 import com.yanze.cloudreaderkotlin.data.bean.wan.ArticlesBean
+import com.yanze.cloudreaderkotlin.ui.wan.article.ArticleListActivity
 import com.yanze.cloudreaderkotlin.utils.ImageLoadUtil
 import com.yanze.cloudreaderkotlin.utils.showToast
 import com.yanze.cloudreaderkotlin.view.webview.WebViewActivity
@@ -28,8 +29,16 @@ class WanArticleAdapter : BaseRecyclerViewAdapter<ArticlesBean>() {
      */
     private var isNoImage = false
 
-    fun setCollectList(){
+    fun setCollectList() {
         this.isCollectList = true
+    }
+
+    fun setNoShowChapterName() {
+        this.isNoShowChapterName = true
+    }
+
+    fun setNoImage() {
+        this.isNoImage = true
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseRecyclerViewHolder<ArticlesBean> {
@@ -50,7 +59,8 @@ class WanArticleAdapter : BaseRecyclerViewAdapter<ArticlesBean>() {
             view.iv_new.visibility = if (nullBean.fresh) View.VISIBLE else View.GONE //new
             //tag
             view.tv_tag_name.setOnClickListener {
-                view.context.showToast("${nullBean.chapterName}")
+//                view.context.showToast("${nullBean.chapterName}")
+                ArticleListActivity.start(view.context,bean.chapterId,"bean.chapterName")
             }
             view.tv_tag_name.text = nullBean.chapterName ?: ""
             view.tv_tag_name.visibility = if (isNoShowChapterName) View.GONE else View.VISIBLE

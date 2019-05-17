@@ -18,17 +18,17 @@ interface WanService {
     fun getNaviJson(): Observable<NaviJsonBean>
 
     /**
+     * 玩安卓首页数据，文章列表、知识体系下的文章
+     */
+    @GET("article/list/{page}/json")
+    fun getHomeList(@Path("page") page: Int, @Query("cid") cid: Int?):Observable<WanHomeResultBean>
+//    fun getHomeList(@Path("page") page: Int): Observable<WanHomeResultBean>
+
+    /**
      * 体系数据
      */
     @GET("tree/json")
     fun getTreeJson(): Observable<TreeResultBean>
-
-    /**
-     * 玩安卓首页数据，文章列表、知识体系下的文章
-     */
-    @GET("article/list/{page}/json")
-    fun getHomeList(@Path("page") page: Int): Observable<WanHomeResultBean>
-//    fun getHomeList(@Path("page") page: Int, @Query("cid") cid: Int):Observable<WanHomeResultBean>
 
     /**
      * WanAndroid首页轮播图
