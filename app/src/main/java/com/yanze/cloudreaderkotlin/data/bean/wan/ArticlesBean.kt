@@ -10,7 +10,7 @@ data class ArticlesBean(
         var collect: Boolean = false,
         val courseId: Int,
         val desc: String,
-        val envelopePic: String,
+        val envelopePic: String?,
         val fresh: Boolean,
         val id: Int,
         val link: String,

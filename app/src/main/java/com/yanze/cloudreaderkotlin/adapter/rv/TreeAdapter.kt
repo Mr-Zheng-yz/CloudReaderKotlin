@@ -33,7 +33,7 @@ class TreeAdapter : BaseRecyclerViewAdapter<TreeBean>() {
             layoutManager.justifyContent = JustifyContent.FLEX_START
             layoutManager.alignItems = AlignItems.FLEX_START
 
-            val tagAdapter = TreeTagAdapter()
+            val tagAdapter = TreeTagAdapter(bean)
             tagAdapter.addAll(bean.children)
 
             view.rv_tree_tag.layoutManager = layoutManager

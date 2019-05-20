@@ -25,8 +25,11 @@ class Constants {
         const val WAN_ANDROID_BANNER = "wan.android.banner"
 
 
+
         const val PAGE_COUNT = 20
 
+        //知识体系详情背景图
+        const val CATEGORY_DETAIL_IMG = "http://www.wanandroid.com/resources/image/pc/default_project_img.jpg"
 
     }
 }

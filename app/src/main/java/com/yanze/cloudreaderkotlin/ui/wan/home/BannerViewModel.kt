@@ -7,7 +7,11 @@ import com.yanze.cloudreaderkotlin.repository.WanRepository
 class BannerViewModel(private val repository: WanRepository) : ViewModel() {
 
     var page: Int = 0
-    private val cid: Int? = null
+    private var cid: Int? = null
+
+    fun setData(cid: Int?) {
+        this.cid = cid
+    }
 
     fun getHomeData() = repository.getWanHomeData(page, cid)
 
