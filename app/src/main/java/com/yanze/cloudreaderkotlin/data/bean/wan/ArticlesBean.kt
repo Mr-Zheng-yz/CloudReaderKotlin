@@ -21,7 +21,7 @@ data class ArticlesBean(
         val publishTime: Long,
         val superChapterId: Int,
         val superChapterName: String,
-        val tags: List<Any>,
+        val tags: List<TagsBean>?,
         val title: String,
         val type: Int,
         val userId: Int,

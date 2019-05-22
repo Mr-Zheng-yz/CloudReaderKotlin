@@ -49,11 +49,11 @@ class GankFragment : BaseFragment() {
     private fun initFragmentList() {
         mTitleList.clear()
         mFragments.clear()
-        mTitleList.add("每日推荐")
+//        mTitleList.add("每日推荐")
         mTitleList.add("福利")
         mTitleList.add("干货订制")
         mTitleList.add("大安卓")
-        mFragments.add(TextFragment())
+//        mFragments.add(TextFragment())
         mFragments.add(WelfareFragment.getInstance())
         mFragments.add(CsutomerFragment.getInstance())
         mFragments.add(AndroidFragment.getInstance())

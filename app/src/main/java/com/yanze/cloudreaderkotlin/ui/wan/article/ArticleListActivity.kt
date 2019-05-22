@@ -13,7 +13,7 @@ import com.yanze.cloudreaderkotlin.data.Resource
 import com.yanze.cloudreaderkotlin.data.bean.WanHomeResultBean
 import com.yanze.cloudreaderkotlin.utils.CommonUtils
 import com.yanze.cloudreaderkotlin.utils.InjectorUtil
-import com.yanze.cloudreaderkotlin.utils.RefreshHelper
+import com.yanze.cloudreaderkotlin.utils.RecyclerViewHelper
 import kotlinx.android.synthetic.main.fragment_banner.*
 
 class ArticleListActivity : BaseActivity() {
@@ -33,7 +33,7 @@ class ArticleListActivity : BaseActivity() {
 
     private fun initView() {
         adapter = WanArticleAdapter()
-        RefreshHelper.init(xrv_wan)
+        RecyclerViewHelper.initRefresh(xrv_wan)
         xrv_wan.adapter = adapter
         xrv_wan.setLoadingListener(object : XRecyclerView.LoadingListener {
             override fun onRefresh() {

@@ -56,7 +56,7 @@ class WanArticleAdapter : BaseRecyclerViewAdapter<ArticlesBean>() {
             view.tv_tag_name.text = bean.chapterName ?: ""
             view.tv_tag_name.visibility = if (isNoShowChapterName) View.GONE else View.VISIBLE
             //image
-            if (bean.envelopePic == null) {
+            if (bean.envelopePic == null || bean.envelopePic.isEmpty()) {
                 view.iv_image.visibility = View.GONE
             }else{
                 view.iv_image.visibility = View.VISIBLE

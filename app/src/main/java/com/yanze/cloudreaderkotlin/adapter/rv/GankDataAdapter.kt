@@ -1,5 +1,6 @@
 package com.yanze.cloudreaderkotlin.adapter.rv
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.view.ViewGroup
 import com.tuju.jetpackfirstdemo.base.baseadapter.BaseRecyclerViewAdapter
@@ -23,6 +24,7 @@ class GankDataAdapter : BaseRecyclerViewAdapter<GankResult>() {
     }
 
     inner class ViewHolder(view: View) : BaseRecyclerViewHolder<GankResult>(view) {
+        @SuppressLint("SetTextI18n")
         override fun onBaseBindViewHolder(bean: GankResult, position: Int) {
             if (isAll && "福利" == bean.type) { //Kotlin中'=='表示对比的是值,相当于equal，而'==='对比的是址（同java的==）
                 view.iv_all_welfare.visibility = View.VISIBLE
@@ -35,7 +37,7 @@ class GankDataAdapter : BaseRecyclerViewAdapter<GankResult>() {
 
             if (isAll) {
                 view.tv_content_type.visibility = View.VISIBLE
-                view.tv_content_type.text = " · ${bean.type}"
+                view.tv_content_type.text = "${view.context.getString(R.string.string_dian)}${bean.type}"
             }else{
                 view.tv_content_type.visibility = View.GONE
             }

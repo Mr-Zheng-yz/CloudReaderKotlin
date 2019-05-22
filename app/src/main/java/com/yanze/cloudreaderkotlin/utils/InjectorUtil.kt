@@ -2,7 +2,6 @@ package com.yanze.cloudreaderkotlin.utils
 
 import android.content.Context
 import com.yanze.cloudreaderkotlin.network.HttpClient
-import com.yanze.cloudreaderkotlin.network.ServiceCreate
 import com.yanze.cloudreaderkotlin.network.cache.ACache
 import com.yanze.cloudreaderkotlin.repository.GankRepository
 import com.yanze.cloudreaderkotlin.repository.MovieRepository
@@ -12,6 +11,7 @@ import com.yanze.cloudreaderkotlin.ui.gank.android.GankViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.gank.customer.CsutomViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.gank.welfare.WelfareViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.movie.MovieViewModelFactory
+import com.yanze.cloudreaderkotlin.ui.search.SearchViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.wan.article.ArticleViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.wan.home.BannerViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.wan.navi.NaviViewModelFactory
@@ -95,4 +95,10 @@ object InjectorUtil {
 
     //文章列表
     fun getArticleViewModelFactory(context: Context?) = ArticleViewModelFactory(getWanRepository(ACache.get(context)))
+
+    //搜索
+    fun getSearchViewModelFactory(context: Context?): SearchViewModelFactory {
+        val acache = ACache.get(context)
+        return SearchViewModelFactory(getWanRepository(acache), getGankRepository(acache))
+    }
 }

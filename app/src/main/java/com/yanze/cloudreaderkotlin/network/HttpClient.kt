@@ -25,6 +25,8 @@ class HttpClient : BaseReqo() {
 
     //==============================干货集中营===============================
     fun getGankIoData(type: String, page: Int, pre_page: Int): Observable<GankIoDataBean> = transform(getGankService().getGankIoData(type, page, pre_page))
+
+    fun searchGank(page: Int, type: String, keyword: String) = transform(getGankService().searchGank(page, type, keyword))
     //==============================干货集中营end===============================
 
     //==============================玩安卓API===============================
@@ -32,12 +34,15 @@ class HttpClient : BaseReqo() {
 
     fun getTreeJson() = transform(getWanService().getTreeJson())
 
-    fun getWanHome(page:Int,cid:Int?) = transform(getWanService().getHomeList(page,cid))
+    fun getWanHome(page: Int, cid: Int?) = transform(getWanService().getHomeList(page, cid))
 
     fun getWanAndroidBanner() = transform(getWanService().getWanAndroidBanner())
 
-    //==============================玩安卓end===============================
+    fun getHotkey() = transform(getWanService().getHotkey())
 
+    fun searchWan(page: Int, keyword: String) = transform(getWanService().searchWan(page, keyword))
+
+    //==============================玩安卓end===============================
 
 
     companion object {

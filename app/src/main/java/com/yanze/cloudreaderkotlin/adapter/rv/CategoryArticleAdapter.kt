@@ -21,7 +21,7 @@ class CategoryArticleAdapter : BaseRecyclerViewAdapter<ArticlesBean>() {
         @SuppressLint("SetTextI18n")
         override fun onBaseBindViewHolder(bean: ArticlesBean, position: Int) {
             //image
-            if (bean.envelopePic == null) {
+            if (bean.envelopePic == null || bean.envelopePic.isEmpty()) {
                 view.iv_image.visibility = View.GONE
             } else {
                 view.iv_image.visibility = View.VISIBLE

@@ -21,7 +21,10 @@ import com.yanze.cloudreaderkotlin.ui.gank.GankFragment
 import com.yanze.cloudreaderkotlin.utils.*
 import com.yanze.cloudreaderkotlin.utils.statusbar.StatusBarUtil
 import com.yanze.cloudreaderkotlin.ui.movie.MovieFragment
+import com.yanze.cloudreaderkotlin.ui.navi_menu.NavHomePageActivity
+import com.yanze.cloudreaderkotlin.ui.search.SearchActivity
 import com.yanze.cloudreaderkotlin.ui.wan.WanFragment
+import com.yanze.cloudreaderkotlin.view.webview.WebViewActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import java.util.ArrayList
@@ -109,7 +112,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
             drawer_layout.postDelayed({
                 when (v?.id) {
                     (R.id.ll_nav_homepage) -> {
-                        this@MainActivity.showToast("首页")
+//                        this@MainActivity.showToast("首页")
+                        NavHomePageActivity.start(this@MainActivity)
                     }
                 }
             }, 260)
@@ -138,7 +142,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
                 }
             }
             (R.id.iv_avatar) -> {
-                this@MainActivity.showToast("头像进入Github")
+                WebViewActivity.loadUrl(this@MainActivity,getString(R.string.github))
+//                this@MainActivity.showToast("头像进入Github")
             }
             (R.id.ll_nav_exit) -> {
                 //退出应用
@@ -166,7 +171,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.getItemId()) {
             R.id.action_search -> {
-                this@MainActivity.showToast("搜索")
+//                this@MainActivity.showToast("搜索")
+                SearchActivity.newInstance(this@MainActivity)
                 return true
             }
             else -> return super.onOptionsItemSelected(item)

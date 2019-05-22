@@ -10,6 +10,7 @@ import com.tuju.jetpackfirstdemo.base.baseadapter.BaseRecyclerViewHolder
 import com.yanze.cloudreaderkotlin.R
 import com.yanze.cloudreaderkotlin.data.bean.wan.NaviBean
 import com.yanze.cloudreaderkotlin.utils.CommonUtils
+import com.yanze.cloudreaderkotlin.utils.RecyclerViewHelper
 import com.yanze.cloudreaderkotlin.view.webview.WebViewActivity
 import kotlinx.android.synthetic.main.item_navi_content.view.*
 import kotlinx.android.synthetic.main.item_navi_tag.view.*
@@ -24,11 +25,12 @@ class NaviContentAdapter(val context: Context) : BaseRecyclerViewAdapter<NaviBea
             view.tv_navi_content_name.text = Html.fromHtml(bean.name)
 
             //流式布局菜单
-            val layoutManager = FlexboxLayoutManager(context)
-            layoutManager.flexWrap = FlexWrap.WRAP
-            layoutManager.flexDirection = FlexDirection.ROW
-            layoutManager.justifyContent = JustifyContent.FLEX_START
-            layoutManager.alignItems = AlignItems.FLEX_START
+            val layoutManager = RecyclerViewHelper.getFlexLayoutManager(context)
+//            val layoutManager = FlexboxLayoutManager(context)
+//            layoutManager.flexWrap = FlexWrap.WRAP
+//            layoutManager.flexDirection = FlexDirection.ROW
+//            layoutManager.justifyContent = JustifyContent.FLEX_START
+//            layoutManager.alignItems = AlignItems.FLEX_START
 
             view.rv_content.layoutManager = layoutManager
             val tagAdapter = NaviTagAdapter()

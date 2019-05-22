@@ -1,6 +1,5 @@
 package com.yanze.cloudreaderkotlin.ui.wan.detail
 
-import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.core.content.ContextCompat
@@ -15,7 +14,6 @@ import com.yanze.cloudreaderkotlin.base.BaseFragment
 import com.yanze.cloudreaderkotlin.data.Resource
 import com.yanze.cloudreaderkotlin.data.bean.WanHomeResultBean
 import com.yanze.cloudreaderkotlin.ui.wan.home.BannerViewModel
-import com.yanze.cloudreaderkotlin.utils.CommonUtils
 import com.yanze.cloudreaderkotlin.utils.InjectorUtil
 import com.yanze.cloudreaderkotlin.view.MyDividerItemDecoration
 import kotlinx.android.synthetic.main.fragment_category_article.*
@@ -82,7 +80,7 @@ class CategoryArticleFragment : BaseFragment() {
                 Resource.ERROR -> {
                     if (adapter.itemCount == 0) {
                         showError()
-                    }else{
+                    } else {
                         xrv_category.noMoreLoading()
                     }
                 }

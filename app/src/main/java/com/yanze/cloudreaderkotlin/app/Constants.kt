@@ -23,7 +23,12 @@ class Constants {
         const val WAN_ANDROID_ARTICLE = "wan.android.article"
         //玩安卓首页Banner缓存
         const val WAN_ANDROID_BANNER = "wan.android.banner"
-
+        //搜索热词缓存
+        const val SEARCH_HOT_KEY = "search.hot.key"
+        //玩安卓搜索缓存
+        const val WAN_SEARCH = "wan.search"
+        //干货io搜索缓存
+        const val GANK_SEARCH = "gank.search"
 
 
         const val PAGE_COUNT = 20

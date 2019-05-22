@@ -24,4 +24,56 @@
     <string name="my_blog">https://mr-zheng-yz.github.io/</string>
 
 
+    <string name="string_about">
+        一年前在Github上乱逛的时候发现了《云阅》这个项目，一下就被它精致的UI与丰富的内容给吸引了。再加上作者对源码的开源与注释，让我很容易就了解了这个项目。
+        当时MVVM和DataBinding对我来说都还是崭新的，但是在对着源码撸了一遍之后，已经大致的掌握了这些技术。
+        除此以外，还学到了更多的知识，可以说《云阅》给我的技术带来了飞跃式的增长，非常感谢作者。
+
+        \n\n 一年后的今天，在学习了Kotlin与Jetpack之后，并没有了解的很透彻。这时我又想到了《云阅》这个项目
+        非常开心看到作者还在持续更新，由于源码我已经抄过一遍了，所以想根据《云阅》来写一个Kotlin版的。
+
+        \n\n 原作者的GitHub：https://github.com/youlookwhat
+        \n 极力推荐欢迎大家去看看~
+
+        \n\n 整体采用Retrofit + RxJava + MvvM + Jetpack
+        \n 已经迁移到了androidX
+        </string>
+
+    <string name="github">https://github.com/Mr-Zheng-yz/CloudReaderKotlin</string>
+
+    <string name="string_about_me">
+        原作者：
+        \nBlog: http://jingbin.me
+        \nEmail: jingbin127@163.com
+        \n\n我的：
+        \nBlog: https://mr-zheng-yz.github.io
+        \nEmail: zhengyz_0430@qq.com
+    </string>
+
+    <string name="string_lib">
+        xrecyclerview
+        \n com.github.chrisbanes:2.1.4
+		\n com.google.android:flexbox:1.1.0
+		\n androidx.constraintlayout:constraintlayout:2.0.0-alpha2
+		\n com.android.support:multidex:1.0.3
+		\n androidx.appcompat:appcompat:1.0.0-alpha1
+		\n androidx.constraintlayout:constraintlayout:1.1.2
+		\n androidx.lifecycle:lifecycle-runtime:2.0.0
+		\n androidx.lifecycle:lifecycle-extensions:2.0.0
+
+		\n androidx.room:room-rxjava2:2.1.3
+		\n io.reactivex.rxjava2:rxandroid:2.0.1
+
+		\n com.squareup.retrofit2:retrofit:2.3.0
+		\n com.squareup.retrofit2:converter-gson:2.3.0
+		\n com.squareup.retrofit2:converter-scalars:2.5.0
+		\n com.squareup.retrofit2:adapter-rxjava2:2.4.0
+		\n com.squareup.okhttp3:logging-interceptor:3.9.0
+
+        \n com.google.code.gson:gson:2.8.5
+        \n com.nineoldandroids:library:2.4.0
+        \n jp.wasabeef:glide-transformations:2.0.1
+        \n com.youth.banner:banner:1.4.10
+    </string>
+    <string name="string_share_text">发现了一个高仿网易云音乐的App，里面有大量IT干货，每天提供安卓，IOS等最新资讯，还有最新电影热映榜和大量书籍信息，大力推荐哦~：https://fir.im/cloudreader</string>
 </resources>

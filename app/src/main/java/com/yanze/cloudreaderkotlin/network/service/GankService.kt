@@ -24,6 +24,10 @@ interface GankService {
     @GET("day/{year}/{month}/{day}")
     abstract fun getGankIoDay(@Path("year") year: String, @Path("month") month: String, @Path("day") day: String): Observable<String>
 
-
+    /**
+     * 搜索
+     */
+    @GET("search/query/{keyWord}/category/{type}/count/20/page/{page}")
+    fun searchGank(@Path("page") page: Int, @Path("type") type: String, @Path("keyWord") keyWord: String): Observable<GankIoDataBean>
 
 }

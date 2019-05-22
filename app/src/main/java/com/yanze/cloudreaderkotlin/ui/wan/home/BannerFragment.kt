@@ -46,7 +46,7 @@ class BannerFragment : BaseFragment() {
 
     private fun initView() {
         adapter = WanArticleAdapter()
-        RefreshHelper.init(childView.xrv_wan)
+        RecyclerViewHelper.initRefresh(childView.xrv_wan)
         childView.xrv_wan.adapter = adapter
         childView.xrv_wan.setLoadingListener(object : XRecyclerView.LoadingListener {
             override fun onRefresh() {

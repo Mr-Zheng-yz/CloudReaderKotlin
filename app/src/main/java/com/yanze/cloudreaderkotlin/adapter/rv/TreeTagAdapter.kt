@@ -20,7 +20,7 @@ class TreeTagAdapter(private val treeBean: TreeBean) : BaseRecyclerViewAdapter<T
             view.tv_tree_tag.text = Html.fromHtml(bean.name)
             view.tv_tree_tag.setTextColor(CommonUtils.randomColor())
             view.tv_tree_tag.setOnClickListener {
-                view.context.showToast(bean.name)
+//                view.context.showToast(bean.name)
                 CategoryDetailActivity.start(view.context,bean.id,treeBean)
             }
         }

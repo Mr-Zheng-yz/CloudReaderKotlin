@@ -8,6 +8,7 @@ import com.yanze.cloudreaderkotlin.data.bean.NaviJsonBean
 import com.yanze.cloudreaderkotlin.data.bean.TreeResultBean
 import com.yanze.cloudreaderkotlin.data.bean.WanBannerResultBean
 import com.yanze.cloudreaderkotlin.data.bean.WanHomeResultBean
+import com.yanze.cloudreaderkotlin.data.bean.search.SearchHotTagResult
 import com.yanze.cloudreaderkotlin.network.DefaultSubscriber
 import com.yanze.cloudreaderkotlin.network.HttpClient
 import com.yanze.cloudreaderkotlin.network.cache.ACache
@@ -68,6 +69,30 @@ class WanRepository private constructor(private var network: HttpClient, private
             liveData.postValue(Resource.success(bannerResultBean))
         } else {
             requestWanBanner(liveData)
+        }
+        return liveData
+    }
+
+    fun getHotkey(): LiveData<Resource<SearchHotTagResult>> {
+        val liveData = MutableLiveData<Resource<SearchHotTagResult>>()
+        liveData.postValue(Resource.loading(null))
+        val resultBean = acache.getAsObject(Constants.SEARCH_HOT_KEY) as SearchHotTagResult?
+        if (resultBean == null) {
+            requestHotkey(liveData)
+        } else {
+            liveData.postValue(Resource.success(resultBean))
+        }
+        return liveData
+    }
+
+    fun searchByKey(page: Int, keyWord: String): LiveData<Resource<WanHomeResultBean>> {
+        val liveData = MutableLiveData<Resource<WanHomeResultBean>>()
+        liveData.postValue(Resource.loading(null))
+        val resultBean = acache.getAsObject("${Constants.WAN_SEARCH}$keyWord$page") as WanHomeResultBean?
+        if (resultBean == null) {
+            requestSearchKey(page, keyWord, liveData)
+        } else {
+            liveData.postValue(Resource.success(resultBean))
         }
         return liveData
     }
@@ -146,6 +171,41 @@ class WanRepository private constructor(private var network: HttpClient, private
         })
     }
 
+    //请求搜索热词
+    private fun requestHotkey(liveData: MutableLiveData<Resource<SearchHotTagResult>>) {
+        network.getHotkey().subscribe(object : DefaultSubscriber<SearchHotTagResult>() {
+            override fun _onError(errMsg: String) {
+                liveData.postValue(Resource.error(errMsg, null))
+            }
+
+            override fun _onNext(entity: SearchHotTagResult) {
+                if (entity.data.isNotEmpty()) {
+                    liveData.postValue(Resource.success(entity))
+                    acache.put(Constants.SEARCH_HOT_KEY, entity, 24 * 60 * 60)
+                } else {
+                    liveData.postValue(Resource.error("数据为空~", null))
+                }
+            }
+        })
+    }
+
+    //请求搜索接口
+    private fun requestSearchKey(page: Int, keyWord: String, liveData: MutableLiveData<Resource<WanHomeResultBean>>) {
+        network.searchWan(page, keyWord).subscribe(object : DefaultSubscriber<WanHomeResultBean>() {
+            override fun _onError(errMsg: String) {
+                liveData.postValue(Resource.error(errMsg, null))
+            }
+
+            override fun _onNext(entity: WanHomeResultBean) {
+                if (entity.data.datas.isNotEmpty()) {
+                    liveData.postValue(Resource.success(entity))
+                    acache.put("${Constants.WAN_SEARCH}$keyWord$page", entity, 24 * 60 * 60)
+                } else {
+                    liveData.postValue(Resource.error("没有更多数据了~", null))
+                }
+            }
+        })
+    }
 
     companion object {
         private var instance: WanRepository? = null
