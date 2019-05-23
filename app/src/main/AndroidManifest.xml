@@ -22,8 +22,7 @@
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask"
-            android:theme="@style/MyScrollPage">
-        </activity>
+            android:theme="@style/MyScrollPage" />
         <activity
             android:name=".ui.movie.MovieDetailActivity"
             android:theme="@style/MyScrollPage" />
@@ -38,15 +37,20 @@
             android:name=".view.viewbigimage.ViewBigImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ViewBigPicTheme" />
-        <activity android:name=".ui.wan.article.ArticleListActivity"
+        <activity
+            android:name=".ui.wan.article.ArticleListActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.wan.CategoryDetailActivity"
+        <activity
+            android:name=".ui.wan.CategoryDetailActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.navi_menu.NavHomePageActivity"
+        <activity
+            android:name=".ui.navi_menu.NavHomePageActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.search.SearchActivity"
+        <activity
+            android:name=".ui.search.SearchActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.TransitionActivity"
+        <activity
+            android:name=".ui.TransitionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -55,6 +59,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.navi_menu.ScanDownActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".ui.navi_menu.IssueActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".ui.navi_menu.AboutActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>

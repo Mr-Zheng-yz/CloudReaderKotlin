@@ -21,8 +21,19 @@
     <string name="actionbar_webview_collect">添加到收藏</string>
     <string name="string_tree_category_size">共%s个子分类</string>
 
-    <string name="my_blog">https://mr-zheng-yz.github.io/</string>
+    <string name="string_url_wanandroid">https://www.wanandroid.com</string>
+    <string name="string_url_gankio">http://gank.io/api</string>
+    <string name="string_url_douban">https://developers.douban.com/wiki/?title=terms</string>
+    <string name="string_download">https://www.pgyer.com/READ</string>
 
+    <string name="my_blog">https://mr-zheng-yz.github.io</string>
+    <string name="my_issue">https://github.com/Mr-Zheng-yz/CloudReaderKotlin/issues</string>
+    <string name="my_csdn">https://blog.csdn.net/weixin_39397471</string>
+    <string name="github">https://github.com/Mr-Zheng-yz/CloudReaderKotlin</string>
+
+    <string name="string_url_new_version">https://fir.im/cloudreader</string>
+
+    <string name="github_issues">您好，很希望得到您的意见，由于没有线上反馈系统，您可以在GitHub的Issues处说明问题原因，也可以通过以下方式联系我，我将根据情况尽量处理哦 ~</string>
 
     <string name="string_about">
         一年前在Github上乱逛的时候发现了《云阅》这个项目，一下就被它精致的UI与丰富的内容给吸引了。再加上作者对源码的开源与注释，让我很容易就了解了这个项目。
@@ -38,8 +49,6 @@
         \n\n 整体采用Retrofit + RxJava + MvvM + Jetpack
         \n 已经迁移到了androidX
         </string>
-
-    <string name="github">https://github.com/Mr-Zheng-yz/CloudReaderKotlin</string>
 
     <string name="string_about_me">
         原作者：
@@ -74,6 +83,7 @@
         \n com.nineoldandroids:library:2.4.0
         \n jp.wasabeef:glide-transformations:2.0.1
         \n com.youth.banner:banner:1.4.10
+        \n com.google.zxing:core:3.3.0
     </string>
     <string name="string_share_text">发现了一个高仿网易云音乐的App，里面有大量IT干货，每天提供安卓，IOS等最新资讯，还有最新电影热映榜和大量书籍信息，大力推荐哦~：https://fir.im/cloudreader</string>
 </resources>

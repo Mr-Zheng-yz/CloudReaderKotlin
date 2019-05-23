@@ -61,4 +61,6 @@
     <!--淡粉色，知识体系按下时颜色-->
     <color name="colorSmallRed">#faebeb</color>
 
+    <color name="text_common">#191919</color>
+
 </resources>

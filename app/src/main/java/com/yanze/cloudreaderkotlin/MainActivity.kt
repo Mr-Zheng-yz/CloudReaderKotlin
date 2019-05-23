@@ -7,26 +7,26 @@ import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.yanze.cloudreaderkotlin.adapter.MyFragmentPageAdapter
 import com.yanze.cloudreaderkotlin.app.ConstantsImageUrl
-import com.yanze.cloudreaderkotlin.test.TextFragment
 import com.yanze.cloudreaderkotlin.ui.gank.GankFragment
 import com.yanze.cloudreaderkotlin.utils.*
 import com.yanze.cloudreaderkotlin.utils.statusbar.StatusBarUtil
 import com.yanze.cloudreaderkotlin.ui.movie.MovieFragment
+import com.yanze.cloudreaderkotlin.ui.navi_menu.AboutActivity
+import com.yanze.cloudreaderkotlin.ui.navi_menu.IssueActivity
 import com.yanze.cloudreaderkotlin.ui.navi_menu.NavHomePageActivity
+import com.yanze.cloudreaderkotlin.ui.navi_menu.ScanDownActivity
 import com.yanze.cloudreaderkotlin.ui.search.SearchActivity
 import com.yanze.cloudreaderkotlin.ui.wan.WanFragment
 import com.yanze.cloudreaderkotlin.view.webview.WebViewActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.nav_header_main.view.*
 import java.util.ArrayList
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPageChangeListener {
@@ -67,16 +67,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
     private fun initDrawerLayout() {
 //        var view = layoutInflater.inflate(R.layout.nav_header_main, null, false)
         var view = nav_view.inflateHeaderView(R.layout.nav_header_main)
-        val iv_avatar = view.findViewById<ImageView>(R.id.iv_avatar)
-        val ll_nav_exit = view.findViewById<LinearLayout>(R.id.ll_nav_exit)
-        val ll_nav_homepage = view.findViewById<LinearLayout>(R.id.ll_nav_homepage)
+//        val iv_avatar = view.findViewById<ImageView>(R.id.iv_avatar)
+//        val ll_nav_exit = view.findViewById<LinearLayout>(R.id.ll_nav_exit)
+//        val ll_nav_homepage = view.findViewById<LinearLayout>(R.id.ll_nav_homepage)
+//        val ll_nav_scan_download = view.findViewById<LinearLayout>(R.id.ll_nav_scan_download)
 
-        ImageLoadUtil.displayCircle(iv_avatar, ConstantsImageUrl.IC_AVATAR)
-        ll_nav_exit.setOnClickListener(this)
-        iv_avatar.setOnClickListener(this)
+        ImageLoadUtil.displayCircle(view.iv_avatar, ConstantsImageUrl.IC_AVATAR)
+        view.ll_nav_exit.setOnClickListener(this)
+        view.iv_avatar.setOnClickListener(this)
 
         //导航栏其他条目点击事件
-        ll_nav_homepage.setOnClickListener(listener)
+        view.ll_nav_homepage.setOnClickListener(listener)
+        view.ll_nav_scan_download.setOnClickListener(listener)
+        view.ll_nav_deedback.setOnClickListener(listener)
+        view.ll_nav_about.setOnClickListener(listener)
+        view.ll_nav_collect.setOnClickListener(listener)
     }
 
     private fun initListener() {
@@ -111,9 +116,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
             drawer_layout.closeDrawer(GravityCompat.START)
             drawer_layout.postDelayed({
                 when (v?.id) {
-                    (R.id.ll_nav_homepage) -> {
+                    R.id.ll_nav_homepage -> {
 //                        this@MainActivity.showToast("首页")
                         NavHomePageActivity.start(this@MainActivity)
+                    }
+                    R.id.ll_nav_scan_download->{
+                        ScanDownActivity.start(this@MainActivity) //扫码下载
+                    }
+                    R.id.ll_nav_deedback->{
+//                        showToast("问题反馈")
+                        IssueActivity.start(this@MainActivity)
+                    }
+                    R.id.ll_nav_about->{
+//                        showToast("关于云阅")
+                        AboutActivity.start(this@MainActivity)
+                    }
+                    R.id.ll_nav_collect->{
+                        showToast("我的收藏")
                     }
                 }
             }, 260)

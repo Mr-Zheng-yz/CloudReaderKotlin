@@ -60,6 +60,7 @@ versions.nineoldandroids = "2.4.0"
 versions.photoview = "2.1.4"
 versions.flexbox = "1.1.0"
 versions.banner = "1.4.10"
+versions.zxing = "3.3.0"
 def deps = [:]
 
 def support = [:]
@@ -156,6 +157,7 @@ deps.nineoldandroids = "com.nineoldandroids:library:$versions.nineoldandroids"
 deps.photoview = "com.github.chrisbanes:PhotoView:$versions.photoview"
 deps.flexbox = "com.google.android:flexbox:$versions.flexbox"
 deps.banner = "com.youth.banner:banner:$versions.banner"
+deps.zxing = "com.google.zxing:core:$versions.zxing"
 ext.deps = deps
 
 def build_versions = [:]

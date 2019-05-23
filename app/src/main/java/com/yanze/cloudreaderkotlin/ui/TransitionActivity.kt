@@ -21,6 +21,5 @@ class TransitionActivity : AppCompatActivity() {
             overridePendingTransition(R.anim.screen_zoom_in, R.anim.screen_zoom_out)
             finish()
         },100)
-        setContentView(R.layout.activity_transition)
     }
 }

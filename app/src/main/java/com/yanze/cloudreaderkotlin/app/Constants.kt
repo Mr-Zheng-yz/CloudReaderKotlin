@@ -36,5 +36,8 @@ class Constants {
         //知识体系详情背景图
         const val CATEGORY_DETAIL_IMG = "http://www.wanandroid.com/resources/image/pc/default_project_img.jpg"
 
+        //下载链接
+        const val DOWNLOAD_URL = "https://www.pgyer.com/READ"
+
     }
 }

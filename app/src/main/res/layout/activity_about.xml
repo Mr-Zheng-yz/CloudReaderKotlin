@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.navi_menu.AboutActivity">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/tv_version_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="当前版本  V1.0.0 "
+        android:textColor="@color/colorSubtitle"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/tv_new_version"
+                style="@style/menuItem"
+                android:clickable="true"
+                android:onClick="checkUpdate"
+                android:text="检查更新" />
+
+            <TextView
+                android:id="@+id/tv_download_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:text="下载链接"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="13sp"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontalLine"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:id="@+id/tv_about_star"
+            style="@style/menuItem"
+            android:clickable="true"
+            android:text="给个Star吧" />
+
+        <View
+            style="@style/horizontalLine"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:id="@+id/tv_good_cloud"
+            style="@style/menuItem"
+            android:clickable="true"
+            android:text="原《云阅》下载" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="2dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="本项目是在原《云阅》的基础上修改的，所用技术有些许不同。本项目仅供个人学习，也尊重JingBin大神的劳动成果，如有转载，请尊重原版权。今后我也会迭代出更多自己想实现的功能，O(∩_∩)O ~"
+        android:textColor="@color/colorSubtitle"
+        android:textSize="14sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《"
+            android:textColor="@color/colorContent"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_wanandroid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="鸿洋 · 玩安卓"
+            android:textColor="@color/colorContent"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="》"
+            android:textColor="@color/colorContent"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《"
+            android:textColor="@color/colorContent"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_gankio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="代码家 · 干货集中营"
+            android:textColor="@color/colorContent"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="》"
+            android:textColor="@color/colorContent"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《"
+            android:textColor="@color/colorContent"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_douban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="豆瓣开发者服务使用条款"
+            android:textColor="@color/colorContent"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="》"
+            android:textColor="@color/colorContent"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</LinearLayout>
