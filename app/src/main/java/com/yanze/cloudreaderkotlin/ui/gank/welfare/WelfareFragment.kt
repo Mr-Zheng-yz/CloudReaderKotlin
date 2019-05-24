@@ -28,6 +28,7 @@ class WelfareFragment : BaseFragment() {
                 .get(WelfareViewModel::class.java)
         initRecyclerView()
         isPrepared = true
+        loadData()
     }
 
     private fun initRecyclerView() {
