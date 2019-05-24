@@ -1,6 +1,14 @@
 # CloudReaderKotlin
 《云阅》Kotlin版
 
+---
+
+## 预览图
+![](https://raw.githubusercontent.com/Mr-Zheng-yz/BlogImages/master/CloudReadKotlin/1.png)
+
+![](https://raw.githubusercontent.com/Mr-Zheng-yz/BlogImages/master/CloudReadKotlin/2.png)
+
+
 ## 前言
 
 一年前在Github上乱逛的时候发现了[《云阅》](https://github.com/youlookwhat/CloudReader)这个项目，一下就被它精致的UI与丰富的内容给吸引了。
@@ -14,8 +22,17 @@
 原作者的GitHub：https://github.com/youlookwhat
 极力推荐欢迎大家去看看~
 
-本项目进攻个人学习使用,如有侵权,请马上联系我删除
+本项目仅供个人学习使用,如有侵权,请马上联系我删除。
 
 ## 说明
 整体采用Retrofit + RxJava + MvvM + Jetpack
 引用库也迁移到了androidX
+
+## 体验
+[下载链接](https://www.pgyer.com/READ)
+![](https://raw.githubusercontent.com/Mr-Zheng-yz/BlogImages/master/CloudReadKotlin/down_load.png)
+
+## About me
+- QQ:646929482
+- Blog:https://mr-zheng-yz.github.io
+- Email:zhengyz_0430@qq.com
