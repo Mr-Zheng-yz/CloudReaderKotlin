@@ -5,6 +5,11 @@ import android.view.Gravity
 import android.widget.Toast
 import com.yanze.cloudreaderkotlin.App
 
+/**
+ * 写自己的一些扩展方法。
+ * 在jetpack中可以先看看Android KTX库中有没有实现，如果没有再自己来写
+ */
+
 fun Context.showToast(msg: String):Toast{
     val toast = Toast.makeText(App.instrance, msg, Toast.LENGTH_SHORT)
     toast.setGravity(Gravity.CENTER, 0, 0)

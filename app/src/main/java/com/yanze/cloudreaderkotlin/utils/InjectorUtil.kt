@@ -3,10 +3,7 @@ package com.yanze.cloudreaderkotlin.utils
 import android.content.Context
 import com.yanze.cloudreaderkotlin.network.HttpClient
 import com.yanze.cloudreaderkotlin.network.cache.ACache
-import com.yanze.cloudreaderkotlin.repository.GankRepository
-import com.yanze.cloudreaderkotlin.repository.MovieRepository
-import com.yanze.cloudreaderkotlin.repository.WanRepository
-import com.yanze.cloudreaderkotlin.repository.WelfareRepository
+import com.yanze.cloudreaderkotlin.repository.*
 import com.yanze.cloudreaderkotlin.ui.gank.android.GankViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.gank.customer.CsutomViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.gank.welfare.WelfareViewModelFactory
@@ -23,6 +20,7 @@ object InjectorUtil {
     private var welfareRepository: WelfareRepository? = null
     private var gankRepository: GankRepository? = null
     private var wanRepository: WanRepository? = null
+    private var mtimeRepository: FilmRepository? = null
 
 
     //==============获取数据仓库===============
@@ -71,6 +69,17 @@ object InjectorUtil {
             }
         }
         return wanRepository!!
+    }
+
+    private fun getFilmRepository(acache: ACache): FilmRepository {
+        if (mtimeRepository == null) {
+            synchronized(InjectorUtil::class.java) {
+                if (mtimeRepository == null) {
+                    mtimeRepository = FilmRepository.getInstance(HttpClient.getInstance(), acache)
+                }
+            }
+        }
+        return mtimeRepository!!
     }
 
     //==============获取ViewModel创建工厂=============

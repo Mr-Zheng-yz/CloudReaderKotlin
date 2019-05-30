@@ -14,6 +14,7 @@ object ServiceCreate {
     const val API_FIR = "http://api.fir.im/apps/"
     const val API_WAN_ANDROID = "https://www.wanandroid.com/"
     const val API_QSBK = "http://m2.qiushibaike.com/"
+    const val API_MTIME = "https://api-m.mtime.cn/"
 
     private var gankHttps: Any? = null
     private var doubanHttps: Any? = null
@@ -21,6 +22,7 @@ object ServiceCreate {
     private var firHttps: Any? = null
     private var wanAndroidHttps: Any? = null
     private var qsbkHttps: Any? = null
+    private var mtimeHttps: Any? = null
 
     @Suppress("UNCHECKED_CAST")
     fun <T> create(service: Class<T>, apiUrl: String): T {
@@ -84,6 +86,16 @@ object ServiceCreate {
                     }
                 }
                 return qsbkHttps as T
+            }
+            API_MTIME -> {
+                if (mtimeHttps == null) {
+                    synchronized(ServiceCreate::class.java) {
+                        if (mtimeHttps == null) {
+                            mtimeHttps = getBuilder(apiUrl).create(service)
+                        }
+                    }
+                }
+                return mtimeHttps as T
             }
             else -> {
                 if (qsbkHttps == null) {

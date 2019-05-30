@@ -29,6 +29,12 @@ class Constants {
         const val WAN_SEARCH = "wan.search"
         //干货io搜索缓存
         const val GANK_SEARCH = "gank.search"
+        //时光网热映电影
+        const val MTIME_HOT = "mtime.hot"
+        //时光网即将上映电影
+        const val MTIME_COMING = "mtime.coming"
+        //时光网电影详情
+        const val MTIME_DETAIL = "mtime.detail"
 
 
         const val PAGE_COUNT = 20
