@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--电影详情-->
     <string name="transition_movie_img">transition_movie_img</string>
 </resources>

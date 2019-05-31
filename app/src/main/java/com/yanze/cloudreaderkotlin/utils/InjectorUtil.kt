@@ -8,6 +8,7 @@ import com.yanze.cloudreaderkotlin.ui.gank.android.GankViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.gank.customer.CsutomViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.gank.welfare.WelfareViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.movie.MovieViewModelFactory
+import com.yanze.cloudreaderkotlin.ui.mtime.MtimeViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.search.SearchViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.wan.article.ArticleViewModelFactory
 import com.yanze.cloudreaderkotlin.ui.wan.home.BannerViewModelFactory
@@ -21,7 +22,6 @@ object InjectorUtil {
     private var gankRepository: GankRepository? = null
     private var wanRepository: WanRepository? = null
     private var mtimeRepository: FilmRepository? = null
-
 
     //==============获取数据仓库===============
 
@@ -109,5 +109,11 @@ object InjectorUtil {
     fun getSearchViewModelFactory(context: Context?): SearchViewModelFactory {
         val acache = ACache.get(context)
         return SearchViewModelFactory(getWanRepository(acache), getGankRepository(acache))
+    }
+
+    //时光网电影
+    fun getMTimeViewModelFactory(context: Context?): MtimeViewModelFactory{
+        val acache = ACache.get(context)
+        return MtimeViewModelFactory(getFilmRepository(acache))
     }
 }

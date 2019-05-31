@@ -2,7 +2,7 @@ package com.yanze.cloudreaderkotlin.data.bean.film
 
 import java.io.Serializable
 
-data class MtimeFilmeBean(
+data class FilmeItemBean(
         val NearestCinemaCount: Int,
         val NearestDay: Int,
         val NearestShowtimeCount: Int,
@@ -30,7 +30,7 @@ data class MtimeFilmeBean(
         val movieType: String,
         val p: List<String>,
         val preferentialFlag: Boolean,
-        val r: Int,
+        val r: Float,
         val rc: Int,
         val rd: String,
         val rsC: Int,

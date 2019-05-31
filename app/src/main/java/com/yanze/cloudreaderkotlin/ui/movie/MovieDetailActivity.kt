@@ -21,6 +21,7 @@ import com.yanze.cloudreaderkotlin.view.webview.WebViewActivity
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.android.synthetic.main.header_slide_shape.view.*
 
+@Deprecated("豆瓣API已关闭...")
 class MovieDetailActivity : BaseHeaderActivity() {
 
     private var subjectBean: SubjectsBean? = null

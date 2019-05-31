@@ -17,6 +17,7 @@ import com.yanze.cloudreaderkotlin.data.bean.moviechild.SubjectsBean
 import com.yanze.cloudreaderkotlin.utils.InjectorUtil
 import kotlinx.android.synthetic.main.activity_movie_top.*
 
+@Deprecated("豆瓣API已关闭...")
 class MovieTopActivity : BaseActivity() {
 
     private lateinit var adapter: MovieTopAdapter

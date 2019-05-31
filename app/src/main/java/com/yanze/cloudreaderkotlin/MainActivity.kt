@@ -17,6 +17,7 @@ import com.yanze.cloudreaderkotlin.ui.gank.GankFragment
 import com.yanze.cloudreaderkotlin.utils.*
 import com.yanze.cloudreaderkotlin.utils.statusbar.StatusBarUtil
 import com.yanze.cloudreaderkotlin.ui.movie.MovieFragment
+import com.yanze.cloudreaderkotlin.ui.mtime.MTimeFragment
 import com.yanze.cloudreaderkotlin.ui.navi_menu.AboutActivity
 import com.yanze.cloudreaderkotlin.ui.navi_menu.IssueActivity
 import com.yanze.cloudreaderkotlin.ui.navi_menu.NavHomePageActivity
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
         val mFragmentList: ArrayList<Fragment> = ArrayList()
         mFragmentList.add(WanFragment.getInstance())
         mFragmentList.add(GankFragment.getInstance())
-        mFragmentList.add(MovieFragment.getInstance())
+        mFragmentList.add(MTimeFragment.getInstance())
 
         val adapter = MyFragmentPageAdapter(supportFragmentManager, mFragmentList)
         vp_content.adapter = adapter

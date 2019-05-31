@@ -41,7 +41,8 @@ class FilmRepository(val network: HttpClient, val acache: ACache) {
         val liveData = MutableLiveData<Resource<FilmDetailResultMovie>>()
         liveData.postValue(Resource.loading(null))
         val resultBean = acache.getAsObject("${Constants.MTIME_DETAIL}$movieId") as FilmDetailResultMovie?
-        if (resultBean == null) {
+//        if (resultBean == null) {
+        if (true) {
             requestFilmDetail(movieId, liveData)
         } else {
             liveData.postValue(Resource.success(resultBean))
@@ -50,7 +51,7 @@ class FilmRepository(val network: HttpClient, val acache: ACache) {
     }
 
     //请求热映电影
-    fun requestHotFilm(liveData: MutableLiveData<Resource<MtimeMovieResultBean>>) {
+    private fun requestHotFilm(liveData: MutableLiveData<Resource<MtimeMovieResultBean>>) {
         network.getHotFilm().subscribe(object : DefaultSubscriber<MtimeMovieResultBean>() {
             override fun _onError(errMsg: String) {
                 liveData.postValue(Resource.error(errMsg, null))
@@ -68,7 +69,7 @@ class FilmRepository(val network: HttpClient, val acache: ACache) {
     }
 
     //请求即将上映电影
-    fun requestComingFilm(liveData: MutableLiveData<Resource<ComingMovieResultBean>>) {
+    private fun requestComingFilm(liveData: MutableLiveData<Resource<ComingMovieResultBean>>) {
         network.getComingFilm().subscribe(object : DefaultSubscriber<ComingMovieResultBean>() {
             override fun _onError(errMsg: String) {
                 liveData.postValue(Resource.error(errMsg, null))
@@ -86,15 +87,19 @@ class FilmRepository(val network: HttpClient, val acache: ACache) {
     }
 
     //请求电影详情
-    fun requestFilmDetail(movieId: Int, liveData: MutableLiveData<Resource<FilmDetailResultMovie>>) {
+    private fun requestFilmDetail(movieId: Int, liveData: MutableLiveData<Resource<FilmDetailResultMovie>>) {
         network.getFilmDetail(movieId = movieId).subscribe(object : DefaultSubscriber<FilmDetailResultMovie>() {
             override fun _onError(errMsg: String) {
                 liveData.postValue(Resource.error(errMsg, null))
             }
 
             override fun _onNext(entity: FilmDetailResultMovie) {
-                liveData.postValue(Resource.success(entity))
-                acache.put("${Constants.MTIME_DETAIL}$movieId", entity)
+                if (entity.data != null) {
+                    liveData.postValue(Resource.success(entity))
+                    acache.put("${Constants.MTIME_DETAIL}$movieId", entity)
+                }else{
+                    liveData.postValue(Resource.error("加载异常，请重试", null))
+                }
             }
         })
     }

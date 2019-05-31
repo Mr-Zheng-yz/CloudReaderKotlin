@@ -4,7 +4,7 @@ import com.yanze.cloudreaderkotlin.data.bean.film.FilmDetailBasicBean
 import java.io.Serializable
 
 data class FilmDetailResultMovie(
-        val data: FilmDetailBasicBean,
+        val data: FilmDetailBasicBean?,
         val code: String,
         val msg: String
 ):Serializable

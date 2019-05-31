@@ -15,6 +15,7 @@ object ServiceCreate {
     const val API_WAN_ANDROID = "https://www.wanandroid.com/"
     const val API_QSBK = "http://m2.qiushibaike.com/"
     const val API_MTIME = "https://api-m.mtime.cn/"
+    const val API_MTIME_TICKET = "https://ticket-api-m.mtime.cn/"
 
     private var gankHttps: Any? = null
     private var doubanHttps: Any? = null
@@ -87,7 +88,7 @@ object ServiceCreate {
                 }
                 return qsbkHttps as T
             }
-            API_MTIME -> {
+            API_MTIME, API_MTIME_TICKET -> {
                 if (mtimeHttps == null) {
                     synchronized(ServiceCreate::class.java) {
                         if (mtimeHttps == null) {

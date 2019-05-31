@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:replace="android:allowBackup">
+        tools:replace="android:allowBackup"
+        android:networkSecurityConfig="@xml/unsafe_client">
+        <activity android:name=".ui.mtime.FilmDetailActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask"
@@ -59,15 +61,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.navi_menu.ScanDownActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".ui.navi_menu.IssueActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".ui.navi_menu.AboutActivity"
-            android:screenOrientation="portrait"
-            />
+        <activity
+            android:name=".ui.navi_menu.ScanDownActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.navi_menu.IssueActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.navi_menu.AboutActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

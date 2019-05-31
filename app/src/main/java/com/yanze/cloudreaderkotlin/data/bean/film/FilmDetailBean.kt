@@ -5,7 +5,7 @@ import java.io.Serializable
 /**
  * 详情，剧照，演员等...
  */
-data class FimDetailBean(
+data class FilmDetailBean(
         val actors: List<ActorBean>,
         val bigImage: String,
         val commentSpecial: String,
@@ -39,7 +39,7 @@ data class FimDetailBean(
         val totalWinAward: Int,
         val type: List<String>, //类型
         val url: String,
-        val video: VideoBean //预告片
+        val video: VideoBean? //预告片
 ) : Serializable {
     data class StyleBean(
             val isLeadPage: Int,

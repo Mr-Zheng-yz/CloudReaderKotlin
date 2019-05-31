@@ -63,4 +63,6 @@
 
     <color name="text_common">#191919</color>
 
+    <color name="colorBtDialog">#38659C</color>
+
 </resources>

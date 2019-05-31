@@ -14,6 +14,7 @@ class HttpClient : BaseReqo() {
     private fun getGankService(): GankService = ServiceCreate.create(GankService::class.java, ServiceCreate.API_GANKIO)
     private fun getWanService(): WanService = ServiceCreate.create(WanService::class.java, ServiceCreate.API_WAN_ANDROID)
     private fun getFilmService(): FilmService = ServiceCreate.create(FilmService::class.java, ServiceCreate.API_MTIME)
+    private fun getMtimeTicketService(): FilmService = ServiceCreate.create(FilmService::class.java, ServiceCreate.API_MTIME_TICKET)
 
     //==============================豆瓣电影================================
     fun getHotMovie(): Observable<HotMovieBean> = transform(getDouBanService().getHotMovie())
@@ -51,7 +52,7 @@ class HttpClient : BaseReqo() {
 
     fun getComingFilm() = transform(getFilmService().getComingFilm())
 
-    fun getFilmDetail(movieId: Int) = transform(getFilmService().getFilmDetail(movieId))
+    fun getFilmDetail(movieId: Int) = transform(getMtimeTicketService().getFilmDetail(movieId = movieId))
     //==============================时光网电影end==============================
 
     companion object {

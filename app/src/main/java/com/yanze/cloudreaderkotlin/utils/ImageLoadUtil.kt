@@ -98,6 +98,16 @@ class ImageLoadUtil {
                     .into(imageView)
         }
 
+        /**
+         * 加载固定宽高图片
+         */
+//        fun displayFormatImg(imageView:ImageView,imageUrl: String,imgWidthDp:Int,imgHeightDp:Int){
+//            Glide.with(imageView.context)
+//                    .load(imageUrl)
+//                    .override(DensityUtil.dip2px(imgWidthDp.toFloat()), DensityUtil.dip2px(imgHeightDp.toFloat()))
+//                    .transition()
+//        }
+
         private fun getDefaultPic(type: Int): Int {
             return when (type) {
                 0 -> R.drawable.img_default_movie

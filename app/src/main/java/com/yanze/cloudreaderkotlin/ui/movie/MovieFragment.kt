@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_movie.*
 import kotlinx.android.synthetic.main.fragment_movie.view.*
 import kotlinx.android.synthetic.main.header_item_move.view.*
 
+@Deprecated("豆瓣API已关闭...")
 class MovieFragment : BaseFragment() {
     private var isPrepared = false //初始化完成
     private var isFirst = true //第一次加载

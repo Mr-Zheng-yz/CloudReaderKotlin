@@ -31,6 +31,7 @@ interface FilmService {
      * @param movieId 电影bean里的id
      */
     @GET("movie/detail.api?locationId=561")
-    fun getFilmDetail(@Query("movieId") movieId: Int) : Observable<FilmDetailResultMovie>
+    fun getFilmDetail(@Query("movieId") movieId: Int): Observable<FilmDetailResultMovie>
+//    fun getFilmDetail(@Query("locationId") locationId: String = "561", @Query("movieId") movieId: Int): Observable<FilmDetailResultMovie>
 
 }

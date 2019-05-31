@@ -148,9 +148,6 @@ class BannerFragment : BaseFragment() {
         viewModel.getHomeData().observe(this, Observer {
             when (it.state) {
                 Resource.LOADING -> {
-                    if (viewModel.page == 0) {
-                        showLoading()
-                    }
                 }
                 Resource.SUCCESS -> {
                     updateUi(it.data!!)
