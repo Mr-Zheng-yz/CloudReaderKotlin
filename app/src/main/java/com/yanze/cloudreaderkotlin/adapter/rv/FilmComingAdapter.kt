@@ -7,6 +7,7 @@ import com.tuju.jetpackfirstdemo.base.baseadapter.BaseRecyclerViewAdapter
 import com.tuju.jetpackfirstdemo.base.baseadapter.BaseRecyclerViewHolder
 import com.yanze.cloudreaderkotlin.R
 import com.yanze.cloudreaderkotlin.data.bean.film.ComingFilmeBean
+import com.yanze.cloudreaderkotlin.data.bean.film.FilmeItemBean
 import com.yanze.cloudreaderkotlin.ui.mtime.FilmDetailActivity
 import com.yanze.cloudreaderkotlin.utils.DensityUtil
 import com.yanze.cloudreaderkotlin.utils.ImageLoadUtil
@@ -32,8 +33,15 @@ class FilmComingAdapter : BaseRecyclerViewAdapter<ComingFilmeBean>() {
             view.tv_rate.text = bean.releaseDate
             DensityUtil.formatHeight(view.iv_top_photo, width, 0.758f, 1)
             view.setOnClickListener {
-                view.context.showToast(bean.title)
-//                FilmDetailActivity.start(view.context as Activity,)
+//                view.context.showToast(bean.title)
+                var actor1 = bean.actor1
+                val actor2 = bean.actor2
+                if (actor2.isNotEmpty()) {
+                    actor1 = "${actor1} / $actor2"
+                }
+                val filmItemBean = FilmeItemBean(id = bean.id, dN = bean.director, tCn = bean.title, tEn = bean.releaseDate
+                        , movieType = bean.type, img = bean.image, locationName = bean.locationName, actors = actor1)
+                FilmDetailActivity.start(view.context as Activity,filmItemBean,view.iv_top_photo)
             }
         }
     }

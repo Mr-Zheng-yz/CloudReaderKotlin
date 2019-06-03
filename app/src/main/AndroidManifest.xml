@@ -18,8 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:replace="android:allowBackup"
-        android:networkSecurityConfig="@xml/unsafe_client">
+        tools:replace="android:allowBackup">
         <activity android:name=".ui.mtime.FilmDetailActivity"></activity>
         <activity
             android:name=".MainActivity"

@@ -110,7 +110,7 @@ class FilmDetailActivity : BaseHeaderActivity() {
     private fun updateUi(bean: FilmDetailResultMovie) {
         val basic = bean.data?.basic
         mHeaderView.tv_one_rating_rate.text = String.format("评分：%s", basic?.overallRating)
-        mHeaderView.tv_one_rating_number.text = String.format("%s人评分", basic?.personCount)
+        mHeaderView.tv_one_rating_number.text = String.format(" %s人评分", basic?.personCount)
         mHeaderView.tv_one_date.text = "上映日期：${basic?.releaseDate} ${basic?.releaseArea}"
         mHeaderView.tv_one_time.text = "片长：${basic?.mins}"
         mContentView.tv_one_title.text = "“${basic?.commentSpecial}”"
